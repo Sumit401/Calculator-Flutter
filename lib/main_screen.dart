@@ -11,6 +11,8 @@ class Main_screen extends StatefulWidget {
 class _Main_screenState extends State<Main_screen> {
 
   // Function to Carry operations
+  String operations_display="";
+  String res2="";
   String todisplayoutput="0";
   double first_num=0;
   double second_num=0;
@@ -21,15 +23,18 @@ class _Main_screenState extends State<Main_screen> {
     //print(val);
       if(val=="CS")
         {
+          operations_display="";
           first_num=0;
           second_num=0;
           res="0";
+          res2="0";
           operat="";
         }
       else if(val=="+"||val=="-"||val=="X"||val=="/"||val=="%")
         {
           res="";
           operat=val;
+          res2=todisplayoutput+val;
           if(todisplayoutput=="+"||todisplayoutput=="-"||todisplayoutput=="X"||todisplayoutput=="/"||todisplayoutput=="%")
             {
               res=val;
@@ -53,6 +58,7 @@ class _Main_screenState extends State<Main_screen> {
         }
       else if(val=="="){
         second_num=double.parse(todisplayoutput);
+        res2=operations_display+todisplayoutput;
         if(operat=="+")
           {
             res=(first_num+second_num).toString();
@@ -73,6 +79,7 @@ class _Main_screenState extends State<Main_screen> {
         {
           res=((first_num*second_num)/100).toString();
         }
+
       }
       else{
         if(todisplayoutput=="+"||todisplayoutput=="-"||todisplayoutput=="X"||todisplayoutput=="/"||todisplayoutput=="%")
@@ -92,6 +99,7 @@ class _Main_screenState extends State<Main_screen> {
       }
       //set state function......................
       setState(() {
+        operations_display=res2;
         todisplayoutput=res;
       });
   }
@@ -117,7 +125,7 @@ class _Main_screenState extends State<Main_screen> {
                 Row(
                   children: [Expanded(child: Padding(
                     padding: const EdgeInsets.all(18.0),
-                    child: Container(child: Text("Hi",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300)),alignment: Alignment.bottomRight,margin:EdgeInsets.fromLTRB(0, 0, 0, 15),),
+                    child: Container(child: Text(operations_display,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300)),alignment: Alignment.bottomRight,margin:EdgeInsets.fromLTRB(0, 0, 0, 15),),
                   )),],
                 ),
                 Row(
