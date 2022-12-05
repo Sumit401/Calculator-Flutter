@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'Drawer.dart';
 
 class Main_screen extends StatefulWidget {
+  static const route ="/basic";
   const Main_screen({Key? key}) : super(key: key);
 
   @override
@@ -154,7 +155,7 @@ class _Main_screenState extends State<Main_screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Scientific Calculator")),
+        appBar: AppBar(title: Text("Bacic Calculator")),
         drawer: Navigation_drawer(),
         body: Container(
             alignment: Alignment.bottomCenter,
