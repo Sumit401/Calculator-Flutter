@@ -106,12 +106,39 @@ class _Main_screenState extends State<Main_screen> {
   // Function for Buttons
   Widget custom_btn(String value)
   {
-    return(Expanded(child: (OutlinedButton(onPressed:() => tasktocarry(value) ,
-      child:Padding(padding: const EdgeInsets.all(30.0),
-      child: Text(value,style:TextStyle(fontSize: 30,color: Colors.black),),
-    ),
-    ))
-    ));
+    if(value=="CS"||value=="BS"||value=="=") {
+      if (value == "CS") {
+        return (Expanded(
+            child: (OutlinedButton(onPressed: () => tasktocarry(value),
+              child: Padding(padding: const EdgeInsets.all(30.0),
+                child: Text(value,
+                  style: TextStyle(fontSize: 30, color: Colors.redAccent),),
+              ),
+            ))
+        ));
+      }
+      else {
+        return (Expanded(
+            child: (OutlinedButton(onPressed: () => tasktocarry(value),
+              child: Padding(padding: const EdgeInsets.all(30.0),
+                child: Text(value,
+                  style: TextStyle(fontSize: 30, color: Colors.lightGreen),),
+              ),
+            ))
+        ));
+      }
+    }
+    else {
+        return (Expanded(
+            child: (OutlinedButton(onPressed: () => tasktocarry(value),
+              child: Padding(padding: const EdgeInsets.all(30.0),
+                child: Text(value,
+                  style: TextStyle(fontSize: 30, color: Colors.black87),),
+              ),
+            ))
+        ));
+      }
+
   }
   @override
   Widget build(BuildContext context) {
@@ -137,9 +164,10 @@ class _Main_screenState extends State<Main_screen> {
                     ),
                   ],),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      custom_btn("BS"),
                       custom_btn("CS"),
+                      custom_btn("BS"),
                       custom_btn("="),
                     ]),
                 Row(
