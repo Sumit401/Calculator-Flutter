@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'Drawer.dart';
 
 class Main_screen extends StatefulWidget {
   const Main_screen({Key? key}) : super(key: key);
@@ -9,209 +10,221 @@ class Main_screen extends StatefulWidget {
 }
 
 class _Main_screenState extends State<Main_screen> {
-
   // Function to Carry operations
-  String operations_display="";
-  String res2="";
-  String todisplayoutput="0";
-  double first_num=0;
-  double second_num=0;
-  String operat="";
-  String res="";
-  void tasktocarry(String val)
-  {
-    //print(val);
-      if(val=="CS")
-        {
-          operations_display="";
-          first_num=0;
-          second_num=0;
-          res="0";
-          res2="0";
-          operat="";
-        }
-      else if(val=="+"||val=="-"||val=="X"||val=="/"||val=="%")
-        {
-          res="";
-          operat=val;
+  String operations_display = "";
+  String res2 = "";
+  String todisplayoutput = "0";
+  double first_num = 0;
+  double second_num = 0;
+  String operat = "";
+  String res = "";
 
-          if(todisplayoutput=="+"||todisplayoutput=="-"||todisplayoutput=="X"||todisplayoutput=="/"||todisplayoutput=="%")
-            {
-              res=val;
-              res2=operations_display.substring(0,operations_display.length-1)+val;
-            }
-          else {
-              first_num = double.parse(todisplayoutput);
-              res=val;
-              res2=todisplayoutput+val;
-          }
-        }
-      else if(val=="BS")
-        {
-          if(todisplayoutput!="+"||todisplayoutput!="-"||todisplayoutput!="X"||todisplayoutput!="/"||todisplayoutput!="%")
-          {
-            res=todisplayoutput.substring(0,todisplayoutput.length-1);
-            /*double d=0;
+  void tasktocarry(String val) {
+    //print(val);
+    if (val == "CS") {
+      operations_display = "";
+      first_num = 0;
+      second_num = 0;
+      res = "0";
+      res2 = "0";
+      operat = "";
+    } else if (val == "+" ||
+        val == "-" ||
+        val == "X" ||
+        val == "/" ||
+        val == "%") {
+      res = "";
+      operat = val;
+
+      if (todisplayoutput == "+" ||
+          todisplayoutput == "-" ||
+          todisplayoutput == "X" ||
+          todisplayoutput == "/" ||
+          todisplayoutput == "%") {
+        res = val;
+        res2 = operations_display.substring(0, operations_display.length - 1) +
+            val;
+      } else {
+        first_num = double.parse(todisplayoutput);
+        res = val;
+        res2 = todisplayoutput + val;
+      }
+    } else if (val == "BS") {
+      if (todisplayoutput != "+" ||
+          todisplayoutput != "-" ||
+          todisplayoutput != "X" ||
+          todisplayoutput != "/" ||
+          todisplayoutput != "%") {
+        res = todisplayoutput.substring(0, todisplayoutput.length - 1);
+        /*double d=0;
             int temp=int.parse(todisplayoutput);
             d=temp/10;
             temp=d as int;
             res=d.toString();*/
-          }
-        }
-      else if(val=="="){
-        second_num=double.parse(todisplayoutput);
-        res2=operations_display+todisplayoutput;
-        if(operat=="+")
-          {
-            res=(first_num+second_num).toString();
-          }
-        else if(operat=="-")
-        {
-          res=(first_num-second_num).toString();
-        }
-        else if(operat=="X")
-        {
-          res=(first_num*second_num).toString();
-        }
-        else if(operat=="/")
-        {
-          res=(first_num/second_num).toString();
-        }
-        else if(operat=="%")
-        {
-          res=((first_num*second_num)/100).toString();
-        }
-
       }
-      else{
-        if(todisplayoutput=="+"||todisplayoutput=="-"||todisplayoutput=="X"||todisplayoutput=="/"||todisplayoutput=="%")
-          {
-            res="";
-            res=val;
-          }
-        else{
-          if(todisplayoutput=="0")
-            {
-              res=val;
-            }
-          else {
-            res = todisplayoutput + val;
-          }
+    } else if (val == "=") {
+      second_num = double.parse(todisplayoutput);
+      res2 = operations_display + todisplayoutput;
+      if (operat == "+") {
+        res = (first_num + second_num).toString();
+      } else if (operat == "-") {
+        res = (first_num - second_num).toString();
+      } else if (operat == "X") {
+        res = (first_num * second_num).toString();
+      } else if (operat == "/") {
+        res = (first_num / second_num).toString();
+      } else if (operat == "%") {
+        res = ((first_num * second_num) / 100).toString();
+      }
+    } else {
+      if (todisplayoutput == "+" ||
+          todisplayoutput == "-" ||
+          todisplayoutput == "X" ||
+          todisplayoutput == "/" ||
+          todisplayoutput == "%") {
+        res = "";
+        res = val;
+      } else {
+        if (todisplayoutput == "0") {
+          res = val;
+        } else {
+          res = todisplayoutput + val;
         }
-      }
-      //set state function......................
-      setState(() {
-        operations_display=res2;
-        todisplayoutput=res;
-      });
-  }
-  // Function for Buttons
-  Widget custom_btn(String value)
-  {
-    if(value=="CS"||value=="BS"||value=="=") {
-      if (value == "BS") {
-        return (Expanded(
-            child: (OutlinedButton(onPressed: () => tasktocarry(value),
-              child: Padding(padding: const EdgeInsets.all(35.0),
-                child: Icon( Icons.backspace_outlined,color: Colors.redAccent, )
-              ),
-            ))
-        ));
-      }
-      else if (value == "CS") {
-        return (Expanded(
-            child: (OutlinedButton(onPressed: () => tasktocarry(value),
-              child: Padding(padding: const EdgeInsets.all(35.0),
-                  child: Icon( Icons.restart_alt,color: Colors.redAccent, )
-              ),
-            ))
-        ));
-      }
-      else {
-        return (Expanded(
-            child: (OutlinedButton(onPressed: () => tasktocarry(value),
-              child: Padding(padding: const EdgeInsets.all(35.0),
-                child: Icon( Icons.send,color: Colors.redAccent, )
-              ),
-            ))
-        ));
       }
     }
-    else {
-        return (Expanded(
-            child: (OutlinedButton(onPressed: () => tasktocarry(value),
-              child: Padding(padding: const EdgeInsets.all(30.0),
-                child: Text(value,
-                  style: TextStyle(fontSize: 30, color: Colors.black87),),
-              ),
-            ))
-        ));
-      }
-
+    //set state function......................
+    setState(() {
+      operations_display = res2;
+      todisplayoutput = res;
+    });
   }
+
+  // Function for Buttons
+  Widget custom_btn(String value) {
+    if (value == "CS" || value == "BS" || value == "=") {
+      if (value == "BS") {
+        return (Expanded(
+            child: (OutlinedButton(
+          onPressed: () => tasktocarry(value),
+          child: Padding(
+              padding: const EdgeInsets.all(35.0),
+              child: Icon(
+                Icons.backspace_outlined,
+                color: Colors.redAccent,
+              )),
+        ))));
+      } else if (value == "CS") {
+        return (Expanded(
+            child: (OutlinedButton(
+          onPressed: () => tasktocarry(value),
+          child: Padding(
+              padding: const EdgeInsets.all(35.0),
+              child: Icon(
+                Icons.restart_alt,
+                color: Colors.redAccent,
+              )),
+        ))));
+      } else {
+        return (Expanded(
+            child: (OutlinedButton(
+          onPressed: () => tasktocarry(value),
+          child: Padding(
+              padding: const EdgeInsets.all(35.0),
+              child: Icon(
+                Icons.send,
+                color: Colors.redAccent,
+              )),
+        ))));
+      }
+    } else {
+      return (Expanded(
+          child: (OutlinedButton(
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Text(
+            value,
+            style: TextStyle(fontSize: 30, color: Colors.black87),
+          ),
+        ),
+      ))));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Basic Calculator")),
-        body: Container(alignment: Alignment.bottomCenter,child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Row(
-                  children: [Expanded(child: Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: Container(child: Text(operations_display,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300)),alignment: Alignment.bottomRight,margin:EdgeInsets.fromLTRB(0, 0, 0, 15),),
-                  )),],
-                ),
-                Row(
+        appBar: AppBar(title: Text("Scientific Calculator")),
+        drawer: Navigation_drawer(),
+        body: Container(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: SingleChildScrollView(
+                child: Column(
                   children: [
-                    Expanded(child: Padding(padding: const EdgeInsets.all(18.0),
-                      child: Container(child: Text(todisplayoutput,style: TextStyle(fontSize: 50),),
-                        alignment: Alignment.bottomRight,),
-                    )
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: Container(
+                            child: Text(operations_display,
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.w300)),
+                            alignment: Alignment.bottomRight,
+                            margin: EdgeInsets.fromLTRB(0, 0, 0, 15),
+                          ),
+                        )),
+                      ],
                     ),
-                  ],),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: Container(
+                            child: Text(
+                              todisplayoutput,
+                              style: TextStyle(fontSize: 50),
+                            ),
+                            alignment: Alignment.bottomRight,
+                          ),
+                        )),
+                      ],
+                    ),
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                       custom_btn("CS"),
                       custom_btn("BS"),
                       custom_btn("="),
                     ]),
-                Row(
-                    children: [
+                    Row(children: [
                       custom_btn("9"),
                       custom_btn("8"),
                       custom_btn("7"),
                       custom_btn("+")
                     ]),
-                Row(
-                    children: [
+                    Row(children: [
                       custom_btn("6"),
                       custom_btn("5"),
                       custom_btn("4"),
                       custom_btn("-")
                     ]),
-                Row(
-                    children: [
+                    Row(children: [
                       custom_btn("3"),
                       custom_btn("2"),
                       custom_btn("1"),
                       custom_btn("X")
                     ]),
-                Row(
-
-                    children: [
+                    Row(children: [
                       custom_btn("."),
                       custom_btn("0"),
                       custom_btn("%"),
                       custom_btn("/")
                     ])
-              ],),
-          ),
-        )
-        )
-    );
+                  ],
+                ),
+              ),
+            )));
   }
 }
