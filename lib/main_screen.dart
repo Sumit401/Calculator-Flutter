@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '';
+
 class Main_screen extends StatefulWidget {
   const Main_screen({Key? key}) : super(key: key);
 
@@ -28,9 +28,16 @@ class _Main_screenState extends State<Main_screen> {
         }
       else if(val=="+"||val=="-"||val=="X"||val=="/")
         {
-          operat=val;
-          first_num=int.parse(todisplayoutput);
           res="";
+          operat=val;
+          if(todisplayoutput=="+"||todisplayoutput=="-"||todisplayoutput=="X"||todisplayoutput=="/")
+            {
+              res=val;
+            }
+          else {
+              first_num = int.parse(todisplayoutput);
+              res=val;
+          }
         }
       else if(val=="="){
         second_num=int.parse(todisplayoutput);
@@ -51,7 +58,15 @@ class _Main_screenState extends State<Main_screen> {
         }
       }
       else{
-        res=todisplayoutput+val;
+        if(todisplayoutput=="+"||todisplayoutput=="-"||todisplayoutput=="X"||todisplayoutput=="/")
+          {
+            res="";
+            res=val;
+          }
+        else{
+          res=todisplayoutput+val;
+        }
+
       }
       //set state function......................
       setState(() {
