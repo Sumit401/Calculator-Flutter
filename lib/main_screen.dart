@@ -11,36 +11,48 @@ class Main_screen extends StatefulWidget {
 class _Main_screenState extends State<Main_screen> {
 
   // Function to Carry operations
-  String todisplayoutput="";
-  int first_num=0;
-  int second_num=0;
+  String todisplayoutput="0";
+  double first_num=0;
+  double second_num=0;
   String operat="";
   String res="";
   void tasktocarry(String val)
   {
     //print(val);
-      if(val=="C")
+      if(val=="CS")
         {
           first_num=0;
           second_num=0;
-          res="";
+          res="0";
           operat="";
         }
-      else if(val=="+"||val=="-"||val=="X"||val=="/")
+      else if(val=="+"||val=="-"||val=="X"||val=="/"||val=="%")
         {
           res="";
           operat=val;
-          if(todisplayoutput=="+"||todisplayoutput=="-"||todisplayoutput=="X"||todisplayoutput=="/")
+          if(todisplayoutput=="+"||todisplayoutput=="-"||todisplayoutput=="X"||todisplayoutput=="/"||todisplayoutput=="%")
             {
               res=val;
             }
           else {
-              first_num = int.parse(todisplayoutput);
+              first_num = double.parse(todisplayoutput);
               res=val;
           }
         }
+      else if(val=="BS")
+        {
+          if(todisplayoutput!="+"||todisplayoutput!="-"||todisplayoutput!="X"||todisplayoutput!="/"||todisplayoutput!="%")
+          {
+            res=todisplayoutput.substring(0,todisplayoutput.length-1);
+            /*double d=0;
+            int temp=int.parse(todisplayoutput);
+            d=temp/10;
+            temp=d as int;
+            res=d.toString();*/
+          }
+        }
       else if(val=="="){
-        second_num=int.parse(todisplayoutput);
+        second_num=double.parse(todisplayoutput);
         if(operat=="+")
           {
             res=(first_num+second_num).toString();
@@ -52,21 +64,31 @@ class _Main_screenState extends State<Main_screen> {
         else if(operat=="X")
         {
           res=(first_num*second_num).toString();
-        }  else if(operat=="/")
+        }
+        else if(operat=="/")
         {
           res=(first_num/second_num).toString();
         }
+        else if(operat=="%")
+        {
+          res=((first_num*second_num)/100).toString();
+        }
       }
       else{
-        if(todisplayoutput=="+"||todisplayoutput=="-"||todisplayoutput=="X"||todisplayoutput=="/")
+        if(todisplayoutput=="+"||todisplayoutput=="-"||todisplayoutput=="X"||todisplayoutput=="/"||todisplayoutput=="%")
           {
             res="";
             res=val;
           }
         else{
-          res=todisplayoutput+val;
+          if(todisplayoutput=="0")
+            {
+              res=val;
+            }
+          else {
+            res = todisplayoutput + val;
+          }
         }
-
       }
       //set state function......................
       setState(() {
@@ -76,54 +98,72 @@ class _Main_screenState extends State<Main_screen> {
   // Function for Buttons
   Widget custom_btn(String value)
   {
-    return(Expanded(child: (OutlinedButton(onPressed:() => tasktocarry(value) ,child:Padding(
-      padding: const EdgeInsets.all(30.0),
+    return(Expanded(child: (OutlinedButton(onPressed:() => tasktocarry(value) ,
+      child:Padding(padding: const EdgeInsets.all(30.0),
       child: Text(value,style:TextStyle(fontSize: 30,color: Colors.black),),
-    ),))));
+    ),
+    ))
+    ));
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text("Basic Calculator")),
-        body: Container(child: Padding(
+        body: Container(alignment: Alignment.bottomCenter,child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Expanded(child: Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Container(child: Text(todisplayoutput,style: TextStyle(fontSize: 40),),alignment: Alignment.bottomRight,),
-              )),
-              Row(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Row(
+                  children: [Expanded(child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Container(child: Text("Hi",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300)),alignment: Alignment.bottomRight,margin:EdgeInsets.fromLTRB(0, 0, 0, 15),),
+                  )),],
+                ),
+                Row(
                   children: [
-                    custom_btn("9"),
-                    custom_btn("8"),
-                    custom_btn("7"),
-                    custom_btn("+")
-                  ]),
-              Row(
-                  children: [
-                    custom_btn("6"),
-                    custom_btn("5"),
-                    custom_btn("4"),
-                    custom_btn("-")
-                  ]),
-              Row(
-                  children: [
-                    custom_btn("3"),
-                    custom_btn("2"),
-                    custom_btn("1"),
-                    custom_btn("X")
-                  ]),
-              Row(
+                    Expanded(child: Padding(padding: const EdgeInsets.all(18.0),
+                      child: Container(child: Text(todisplayoutput,style: TextStyle(fontSize: 50),),
+                        alignment: Alignment.bottomRight,),
+                    )
+                    ),
+                  ],),
+                Row(
+                    children: [
+                      custom_btn("BS"),
+                      custom_btn("CS"),
+                      custom_btn("="),
+                    ]),
+                Row(
+                    children: [
+                      custom_btn("9"),
+                      custom_btn("8"),
+                      custom_btn("7"),
+                      custom_btn("+")
+                    ]),
+                Row(
+                    children: [
+                      custom_btn("6"),
+                      custom_btn("5"),
+                      custom_btn("4"),
+                      custom_btn("-")
+                    ]),
+                Row(
+                    children: [
+                      custom_btn("3"),
+                      custom_btn("2"),
+                      custom_btn("1"),
+                      custom_btn("X")
+                    ]),
+                Row(
 
-                  children: [
-                    custom_btn("C"),
-                    custom_btn("0"),
-                    custom_btn("="),
-                    custom_btn("/")
-                  ])
-            ],
+                    children: [
+                      custom_btn("."),
+                      custom_btn("0"),
+                      custom_btn("%"),
+                      custom_btn("/")
+                    ])
+              ],),
           ),
         )
         )
