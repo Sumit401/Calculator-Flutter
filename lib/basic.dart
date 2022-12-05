@@ -34,14 +34,16 @@ class _Main_screenState extends State<Main_screen> {
         {
           res="";
           operat=val;
-          res2=todisplayoutput+val;
+
           if(todisplayoutput=="+"||todisplayoutput=="-"||todisplayoutput=="X"||todisplayoutput=="/"||todisplayoutput=="%")
             {
               res=val;
+              res2=operations_display.substring(0,operations_display.length-1)+val;
             }
           else {
               first_num = double.parse(todisplayoutput);
               res=val;
+              res2=todisplayoutput+val;
           }
         }
       else if(val=="BS")
@@ -107,12 +109,20 @@ class _Main_screenState extends State<Main_screen> {
   Widget custom_btn(String value)
   {
     if(value=="CS"||value=="BS"||value=="=") {
-      if (value == "CS") {
+      if (value == "BS") {
         return (Expanded(
             child: (OutlinedButton(onPressed: () => tasktocarry(value),
-              child: Padding(padding: const EdgeInsets.all(30.0),
-                child: Text(value,
-                  style: TextStyle(fontSize: 30, color: Colors.redAccent),),
+              child: Padding(padding: const EdgeInsets.all(35.0),
+                child: Icon( Icons.backspace_outlined,color: Colors.redAccent, )
+              ),
+            ))
+        ));
+      }
+      else if (value == "CS") {
+        return (Expanded(
+            child: (OutlinedButton(onPressed: () => tasktocarry(value),
+              child: Padding(padding: const EdgeInsets.all(35.0),
+                  child: Icon( Icons.restart_alt,color: Colors.redAccent, )
               ),
             ))
         ));
@@ -120,9 +130,8 @@ class _Main_screenState extends State<Main_screen> {
       else {
         return (Expanded(
             child: (OutlinedButton(onPressed: () => tasktocarry(value),
-              child: Padding(padding: const EdgeInsets.all(30.0),
-                child: Text(value,
-                  style: TextStyle(fontSize: 30, color: Colors.lightGreen),),
+              child: Padding(padding: const EdgeInsets.all(35.0),
+                child: Icon( Icons.send,color: Colors.redAccent, )
               ),
             ))
         ));
