@@ -26,7 +26,60 @@ class _ScientificState extends State<Scientific> {
               )),
         )),
       ));
-    } else {
+    }
+    else if (val == "BS") {
+      return (Expanded(
+        child: (OutlinedButton(
+          onPressed: () => {},
+          child: Padding(
+              padding: const EdgeInsets.only(bottom: 30, top: 30),
+              child: Icon(
+                FontAwesomeIcons.deleteLeft,
+                size: 20,
+                color: Colors.black,
+              )),
+        )),
+      ));
+    }
+    else if (val == "CS") {
+      return (Expanded(
+        child: (OutlinedButton(
+          onPressed: () => {},
+          child: Padding(
+              padding: const EdgeInsets.only(bottom: 30, top: 30),
+              child: Icon(
+                FontAwesomeIcons.circleXmark,
+                size: 20,
+                color: Colors.black,
+              )),
+        )),
+      ));
+    }
+    else if (val == "^") {
+      return (Expanded(
+        child: (OutlinedButton(
+          onPressed: () => {},
+          child: Padding(
+              padding: const EdgeInsets.only(bottom: 30, top: 30),
+              child: Text("x\u02b8",style: TextStyle(color: Colors.black,fontSize: 20),)),
+        )),
+      ));
+    }
+    else if (val == "=") {
+      return (Expanded(
+        child: (OutlinedButton(
+          onPressed: () => {},
+          child: Padding(
+              padding: const EdgeInsets.only(bottom: 30, top: 30),
+              child: Icon(
+                FontAwesomeIcons.equals,
+                size: 20,
+                color: Colors.black,
+              )),
+        )),
+      ));
+    }
+    else {
       return (Expanded(
         child: (OutlinedButton(
           onPressed: () => {},
@@ -54,17 +107,17 @@ class _ScientificState extends State<Scientific> {
           children: [
             Row(children: [
               custom_sc_btn("RT"),
+              custom_sc_btn("^"),
               custom_sc_btn("CS"),
-              custom_sc_btn("="),
               custom_sc_btn("BS"),
-              custom_sc_btn("CS")
+              custom_sc_btn("=")
             ]),
             Row(children: [
-              custom_sc_btn("^"),
-              custom_sc_btn("cos"),
               custom_sc_btn("sin"),
+              custom_sc_btn("cos"),
               custom_sc_btn("tan"),
-              custom_sc_btn("tan")
+              custom_sc_btn("("),
+              custom_sc_btn(")")
             ]),
             Row(children: [
               custom_sc_btn("log"),
@@ -81,7 +134,7 @@ class _ScientificState extends State<Scientific> {
               custom_sc_btn("-")
             ]),
             Row(children: [
-              custom_sc_btn("X!"),
+              custom_sc_btn("x!"),
               custom_sc_btn("3"),
               custom_sc_btn("2"),
               custom_sc_btn("1"),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'Navigation_drawer.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:project/Navigation_drawer.dart';
 
 class Main_screen extends StatefulWidget {
-  static const route ="/basic";
+  static const route = "/basic";
+
   const Main_screen({Key? key}) : super(key: key);
 
   @override
@@ -43,7 +44,8 @@ class _Main_screenState extends State<Main_screen> {
           todisplayoutput == "/" ||
           todisplayoutput == "%") {
         res = val;
-        res2 = operations_display.substring(0, operations_display.length - 1) + val;
+        res2 = operations_display.substring(0, operations_display.length - 1) +
+            val;
       } else {
         first_num = double.parse(todisplayoutput);
         res = val;
@@ -107,10 +109,10 @@ class _Main_screenState extends State<Main_screen> {
             child: (OutlinedButton(
           onPressed: () => tasktocarry(value),
           child: Padding(
-              padding: const EdgeInsets.only(top: 32,bottom: 32),
+              padding: const EdgeInsets.only(top: 32, bottom: 32),
               child: Icon(
-                Icons.backspace_outlined,
-                color: Colors.redAccent,
+                FontAwesomeIcons.deleteLeft,
+                color: Colors.black,
               )),
         ))));
       } else if (value == "CS") {
@@ -118,10 +120,10 @@ class _Main_screenState extends State<Main_screen> {
             child: (OutlinedButton(
           onPressed: () => tasktocarry(value),
           child: Padding(
-              padding: const EdgeInsets.only(top: 32,bottom: 32),
+              padding: const EdgeInsets.only(top: 32, bottom: 32),
               child: Icon(
-                Icons.clear_outlined,
-                color: Colors.redAccent,
+                FontAwesomeIcons.circleXmark,
+                color: Colors.black,
               )),
         ))));
       } else {
@@ -129,10 +131,10 @@ class _Main_screenState extends State<Main_screen> {
             child: (OutlinedButton(
           onPressed: () => tasktocarry(value),
           child: Padding(
-              padding: const EdgeInsets.only(top: 32,bottom: 32),
+              padding: const EdgeInsets.only(top: 32, bottom: 32),
               child: Icon(
-                Icons.send,
-                color: Colors.redAccent,
+                FontAwesomeIcons.equals,
+                color: Colors.black,
               )),
         ))));
       }
