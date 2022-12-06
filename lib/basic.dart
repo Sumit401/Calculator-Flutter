@@ -43,8 +43,7 @@ class _Main_screenState extends State<Main_screen> {
           todisplayoutput == "/" ||
           todisplayoutput == "%") {
         res = val;
-        res2 = operations_display.substring(0, operations_display.length - 1) +
-            val;
+        res2 = operations_display.substring(0, operations_display.length - 1) + val;
       } else {
         first_num = double.parse(todisplayoutput);
         res = val;
@@ -108,7 +107,7 @@ class _Main_screenState extends State<Main_screen> {
             child: (OutlinedButton(
           onPressed: () => tasktocarry(value),
           child: Padding(
-              padding: const EdgeInsets.all(35.0),
+              padding: const EdgeInsets.only(top: 32,bottom: 32),
               child: Icon(
                 Icons.backspace_outlined,
                 color: Colors.redAccent,
@@ -119,9 +118,9 @@ class _Main_screenState extends State<Main_screen> {
             child: (OutlinedButton(
           onPressed: () => tasktocarry(value),
           child: Padding(
-              padding: const EdgeInsets.all(35.0),
+              padding: const EdgeInsets.only(top: 32,bottom: 32),
               child: Icon(
-                Icons.restart_alt,
+                Icons.clear_outlined,
                 color: Colors.redAccent,
               )),
         ))));
@@ -130,7 +129,7 @@ class _Main_screenState extends State<Main_screen> {
             child: (OutlinedButton(
           onPressed: () => tasktocarry(value),
           child: Padding(
-              padding: const EdgeInsets.all(35.0),
+              padding: const EdgeInsets.only(top: 32,bottom: 32),
               child: Icon(
                 Icons.send,
                 color: Colors.redAccent,
@@ -215,7 +214,7 @@ class _Main_screenState extends State<Main_screen> {
                       custom_btn("3"),
                       custom_btn("2"),
                       custom_btn("1"),
-                      custom_btn("X")
+                      custom_btn("*")
                     ]),
                     Row(children: [
                       custom_btn("."),
