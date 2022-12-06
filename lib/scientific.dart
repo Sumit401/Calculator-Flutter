@@ -26,8 +26,7 @@ class _ScientificState extends State<Scientific> {
               )),
         )),
       ));
-    }
-    else if (val == "BS") {
+    } else if (val == "BS") {
       return (Expanded(
         child: (OutlinedButton(
           onPressed: () => {},
@@ -40,8 +39,7 @@ class _ScientificState extends State<Scientific> {
               )),
         )),
       ));
-    }
-    else if (val == "CS") {
+    } else if (val == "CS") {
       return (Expanded(
         child: (OutlinedButton(
           onPressed: () => {},
@@ -54,18 +52,19 @@ class _ScientificState extends State<Scientific> {
               )),
         )),
       ));
-    }
-    else if (val == "^") {
+    } else if (val == "^") {
       return (Expanded(
         child: (OutlinedButton(
           onPressed: () => {},
           child: Padding(
               padding: const EdgeInsets.only(bottom: 30, top: 30),
-              child: Text("x\u02b8",style: TextStyle(color: Colors.black,fontSize: 20),)),
+              child: Text(
+                "x\u02b8",
+                style: TextStyle(color: Colors.black, fontSize: 20),
+              )),
         )),
       ));
-    }
-    else if (val == "=") {
+    } else if (val == "=") {
       return (Expanded(
         child: (OutlinedButton(
           onPressed: () => {},
@@ -78,8 +77,7 @@ class _ScientificState extends State<Scientific> {
               )),
         )),
       ));
-    }
-    else {
+    } else {
       return (Expanded(
         child: (OutlinedButton(
           onPressed: () => {},
@@ -105,6 +103,15 @@ class _ScientificState extends State<Scientific> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.only(bottom: 10),
+                alignment: Alignment.bottomRight,
+                child: Text(
+                  "Hi",
+                style: TextStyle(fontSize: 50),),
+              ),
+            ),
             Row(children: [
               custom_sc_btn("RT"),
               custom_sc_btn("^"),
