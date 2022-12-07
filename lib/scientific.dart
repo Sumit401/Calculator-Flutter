@@ -103,15 +103,26 @@ class _ScientificState extends State<Scientific> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            //Below for sub output section
+            Expanded(
+              child: Container(
+                alignment: Alignment.bottomRight,
+                child: Text(
+                  "Output",
+                  style: TextStyle(fontSize: 20,color: Colors.black54,fontWeight: FontWeight.w300),),
+              ),
+            ),
+            // Below Four Output section
             Expanded(
               child: Container(
                 margin: EdgeInsets.only(bottom: 10),
                 alignment: Alignment.bottomRight,
                 child: Text(
-                  "Hi",
-                style: TextStyle(fontSize: 50),),
+                  "Output",
+                style: TextStyle(fontSize: 50,color: Colors.black),),
               ),
             ),
+            // Below section for buttons
             Row(children: [
               custom_sc_btn("RT"),
               custom_sc_btn("^"),
