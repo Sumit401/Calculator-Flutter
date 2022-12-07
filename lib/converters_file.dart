@@ -87,10 +87,56 @@ class _Converters_FileState extends State<Converters_File> {
                 ],
               ),
             ),
-            Row(
-              children: [
-
-              ],
+            Padding(
+              padding: const EdgeInsets.only(
+              top: 20, bottom: 20, right: 40, left: 40),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: DropdownButton<String>(
+                      items: items
+                          .map((e) => DropdownMenuItem(
+                        child: Text(e),
+                        value: e,
+                      ))
+                          .toList(),
+                      isExpanded: true,
+                      icon: Icon(FontAwesomeIcons.anglesDown,
+                          color: Colors.black),
+                      iconSize: 25,
+                      onChanged: (val) {
+                        setState(() {
+                          _dropdownvalue = val;
+                        });
+                      },
+                      value: _dropdownvalue,
+                    ),
+                  ),
+                  VerticalDivider(
+                    width: 40,
+                  ),
+                  Expanded(
+                    child: DropdownButton<String>(
+                      items: items
+                          .map((e) => DropdownMenuItem(
+                        child: Text(e),
+                        value: e,
+                      ))
+                          .toList(),
+                      isExpanded: true,
+                      icon: Icon(FontAwesomeIcons.anglesDown,
+                          color: Colors.black),
+                      iconSize: 25,
+                      onChanged: (val) {
+                        setState(() {
+                          _dropdownvalue = val;
+                        });
+                      },
+                      value: _dropdownvalue,
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ));
