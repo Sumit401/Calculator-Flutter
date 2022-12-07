@@ -32,6 +32,7 @@ class _Converters_FileState extends State<Converters_File> {
         appBar: AppBar(title: Text("Conveter")),
         drawer: Navigation_drawer(),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
               children: [
@@ -41,7 +42,8 @@ class _Converters_FileState extends State<Converters_File> {
                     margin: EdgeInsets.all(16),
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                     decoration: BoxDecoration(
-                      shape: BoxShape.rectangle, /*border: Border.all(color: Colors.black)*/
+                      shape: BoxShape
+                          .rectangle, /*border: Border.all(color: Colors.black)*/
                     ),
                     child: DropdownButton<String>(
                       items: items
@@ -89,16 +91,16 @@ class _Converters_FileState extends State<Converters_File> {
             ),
             Padding(
               padding: const EdgeInsets.only(
-              top: 20, bottom: 20, right: 40, left: 40),
+                  top: 20, bottom: 20, right: 40, left: 40),
               child: Row(
                 children: [
                   Expanded(
                     child: DropdownButton<String>(
                       items: items
                           .map((e) => DropdownMenuItem(
-                        child: Text(e),
-                        value: e,
-                      ))
+                                child: Text(e),
+                                value: e,
+                              ))
                           .toList(),
                       isExpanded: true,
                       icon: Icon(FontAwesomeIcons.anglesDown,
@@ -119,9 +121,9 @@ class _Converters_FileState extends State<Converters_File> {
                     child: DropdownButton<String>(
                       items: items
                           .map((e) => DropdownMenuItem(
-                        child: Text(e),
-                        value: e,
-                      ))
+                                child: Text(e),
+                                value: e,
+                              ))
                           .toList(),
                       isExpanded: true,
                       icon: Icon(FontAwesomeIcons.anglesDown,
@@ -137,7 +139,8 @@ class _Converters_FileState extends State<Converters_File> {
                   ),
                 ],
               ),
-            )
+            ),
+            ElevatedButton(onPressed: () {}, child: Text("Check"))
           ],
         ));
   }
