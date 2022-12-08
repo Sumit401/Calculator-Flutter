@@ -12,14 +12,153 @@ class Main_screen extends StatefulWidget {
 }
 
 class _Main_screenState extends State<Main_screen> {
-  // Function to Carry operations
-  String operations_display = "";
-  String res2 = "";
-  String todisplayoutput = "0";
-  double first_num = 0;
-  double second_num = 0;
-  String operat = "";
-  String res = "";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: Text("Bacic Calculator")),
+        drawer: Navigation_drawer(),
+        body: Container(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: Container(
+                            child: Text(operations_display,
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.w300)),
+                            alignment: Alignment.bottomRight,
+                            margin: EdgeInsets.fromLTRB(0, 0, 0, 15),
+                          ),
+                        )),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: Container(
+                            child: Text(
+                              todisplayoutput,
+                              style: TextStyle(fontSize: 50),
+                            ),
+                            alignment: Alignment.bottomRight,
+                          ),
+                        )),
+                      ],
+                    ),
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      custom_btn("CS"),
+                      custom_btn("BS"),
+                      custom_btn("="),
+                    ]),
+                    Row(children: [
+                      custom_btn("9"),
+                      custom_btn("8"),
+                      custom_btn("7"),
+                      custom_btn("+")
+                    ]),
+                    Row(children: [
+                      custom_btn("6"),
+                      custom_btn("5"),
+                      custom_btn("4"),
+                      custom_btn("-")
+                    ]),
+                    Row(children: [
+                      custom_btn("3"),
+                      custom_btn("2"),
+                      custom_btn("1"),
+                      custom_btn("*")
+                    ]),
+                    Row(children: [
+                      custom_btn("."),
+                      custom_btn("0"),
+                      custom_btn("%"),
+                      custom_btn("/")
+                    ])
+                  ],
+                ),
+              ),
+            )));
+  }
+
+  //////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////
+  // Designing for all Buttons.............................................
+  // Function for Buttons..................................................
+  //////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////
+
+  Widget custom_btn(String value) {
+    if (value == "BS") {
+      return (Expanded(
+          child: (OutlinedButton(
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.deleteLeft,
+              color: Colors.black,
+            )),
+      ))));
+    } else if (value == "CS") {
+      return (Expanded(
+          child: (OutlinedButton(
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.circleXmark,
+              color: Colors.black,
+            )),
+      ))));
+    } else if (value == "=") {
+      return (Expanded(
+          child: (OutlinedButton(
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.equals,
+              color: Colors.black,
+            )),
+      ))));
+    } else {
+      return (Expanded(
+          child: (OutlinedButton(
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Text(
+            value,
+            style: TextStyle(fontSize: 30, color: Colors.black87),
+          ),
+        ),
+      ))));
+    }
+  }
+
+  //////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////
+  // Mathematical Calculation for all Buttons.............................................
+  // Function to Carry operations.........................................................
+  //////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////
+
+  String operations_display = ""; // for operations field
+  String res2 = ""; // for to operations output field resource value
+  String todisplayoutput = "0"; // for output field
+  double first_num = 0; // first number
+  double second_num = 0; // for second number
+  String operat = ""; // for operations
+  String res = ""; // for to display output field resource value
 
   void tasktocarry(String val) {
     //print(val);
@@ -96,137 +235,8 @@ class _Main_screenState extends State<Main_screen> {
     }
     //set state function......................
     setState(() {
-      operations_display = res2;
-      todisplayoutput = res;
+      operations_display = res2; // for operations
+      todisplayoutput = res; // for output
     });
-  }
-
-  // Function for Buttons
-  Widget custom_btn(String value) {
-    if (value == "CS" || value == "BS" || value == "=") {
-      if (value == "BS") {
-        return (Expanded(
-            child: (OutlinedButton(
-          onPressed: () => tasktocarry(value),
-          child: Padding(
-              padding: const EdgeInsets.only(top: 32, bottom: 32),
-              child: Icon(
-                FontAwesomeIcons.deleteLeft,
-                color: Colors.black,
-              )),
-        ))));
-      } else if (value == "CS") {
-        return (Expanded(
-            child: (OutlinedButton(
-          onPressed: () => tasktocarry(value),
-          child: Padding(
-              padding: const EdgeInsets.only(top: 32, bottom: 32),
-              child: Icon(
-                FontAwesomeIcons.circleXmark,
-                color: Colors.black,
-              )),
-        ))));
-      } else {
-        return (Expanded(
-            child: (OutlinedButton(
-          onPressed: () => tasktocarry(value),
-          child: Padding(
-              padding: const EdgeInsets.only(top: 32, bottom: 32),
-              child: Icon(
-                FontAwesomeIcons.equals,
-                color: Colors.black,
-              )),
-        ))));
-      }
-    } else {
-      return (Expanded(
-          child: (OutlinedButton(
-        onPressed: () => tasktocarry(value),
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: Text(
-            value,
-            style: TextStyle(fontSize: 30, color: Colors.black87),
-          ),
-        ),
-      ))));
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text("Bacic Calculator")),
-        drawer: Navigation_drawer(),
-        body: Container(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                            child: Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Container(
-                            child: Text(operations_display,
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.w300)),
-                            alignment: Alignment.bottomRight,
-                            margin: EdgeInsets.fromLTRB(0, 0, 0, 15),
-                          ),
-                        )),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                            child: Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Container(
-                            child: Text(
-                              todisplayoutput,
-                              style: TextStyle(fontSize: 50),
-                            ),
-                            alignment: Alignment.bottomRight,
-                          ),
-                        )),
-                      ],
-                    ),
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      custom_btn("CS"),
-                      custom_btn("BS"),
-                      custom_btn("="),
-                    ]),
-                    Row(children: [
-                      custom_btn("9"),
-                      custom_btn("8"),
-                      custom_btn("7"),
-                      custom_btn("+")
-                    ]),
-                    Row(children: [
-                      custom_btn("6"),
-                      custom_btn("5"),
-                      custom_btn("4"),
-                      custom_btn("-")
-                    ]),
-                    Row(children: [
-                      custom_btn("3"),
-                      custom_btn("2"),
-                      custom_btn("1"),
-                      custom_btn("*")
-                    ]),
-                    Row(children: [
-                      custom_btn("."),
-                      custom_btn("0"),
-                      custom_btn("%"),
-                      custom_btn("/")
-                    ])
-                  ],
-                ),
-              ),
-            )));
   }
 }
