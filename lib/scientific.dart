@@ -16,7 +16,7 @@ class _ScientificState extends State<Scientific> {
     if (val == "RT") {
       return (Expanded(
         child: (OutlinedButton(
-          onPressed: () => {},
+          onPressed: () => {tasktocarryout(val)},
           child: Padding(
               padding: const EdgeInsets.only(bottom: 30, top: 30),
               child: Icon(
@@ -29,7 +29,7 @@ class _ScientificState extends State<Scientific> {
     } else if (val == "BS") {
       return (Expanded(
         child: (OutlinedButton(
-          onPressed: () => {},
+          onPressed: () => {tasktocarryout(val)},
           child: Padding(
               padding: const EdgeInsets.only(bottom: 30, top: 30),
               child: Icon(
@@ -42,7 +42,7 @@ class _ScientificState extends State<Scientific> {
     } else if (val == "CS") {
       return (Expanded(
         child: (OutlinedButton(
-          onPressed: () => {},
+          onPressed: () => {tasktocarryout(val)},
           child: Padding(
               padding: const EdgeInsets.only(bottom: 30, top: 30),
               child: Icon(
@@ -55,7 +55,7 @@ class _ScientificState extends State<Scientific> {
     } else if (val == "^") {
       return (Expanded(
         child: (OutlinedButton(
-          onPressed: () => {},
+          onPressed: () => {tasktocarryout(val)},
           child: Padding(
               padding: const EdgeInsets.only(bottom: 30, top: 30),
               child: Text(
@@ -67,7 +67,7 @@ class _ScientificState extends State<Scientific> {
     } else if (val == "=") {
       return (Expanded(
         child: (OutlinedButton(
-          onPressed: () => {},
+          onPressed: () => {tasktocarryout(val)},
           child: Padding(
               padding: const EdgeInsets.only(bottom: 30, top: 30),
               child: Icon(
@@ -80,7 +80,7 @@ class _ScientificState extends State<Scientific> {
     } else {
       return (Expanded(
         child: (OutlinedButton(
-          onPressed: () => {},
+          onPressed: () => {tasktocarryout(val)},
           child: Padding(
             padding: const EdgeInsets.only(bottom: 30, top: 30),
             child:
@@ -156,7 +156,7 @@ class _ScientificState extends State<Scientific> {
               custom_sc_btn("3"),
               custom_sc_btn("2"),
               custom_sc_btn("1"),
-              custom_sc_btn("X")
+              custom_sc_btn("*")
             ]),
             Row(children: [
               custom_sc_btn("e"),
@@ -169,5 +169,20 @@ class _ScientificState extends State<Scientific> {
         ),
       ),
     );
+  }
+
+  String operations_display = "";
+  String res2 = "";
+  String todisplayoutput = "0";
+  double first_num = 0;
+  double second_num = 0;
+  String operat = "";
+  String res = "";
+
+  void tasktocarryout(String val) {
+  if(val=="+"|| val=="-"||val=="*"||val=="/")
+    {
+
+    }
   }
 }

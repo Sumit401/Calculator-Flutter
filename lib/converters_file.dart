@@ -13,17 +13,14 @@ class Converters_File extends StatefulWidget {
 
 class _Converters_FileState extends State<Converters_File> {
   var items = [
-    "Area",
     "Length",
-    "Speed",
-    "Temperature",
-    "Pressure",
-    "Time",
-    "Volume",
     "Mass",
-    "Digital Storage",
-    "Energy"
+    "Speed",
+    "Temperature"
   ];
+  var from=[{"Centimeter","Kilometre","Millimetre","Meter","Mile","Foot","Inch"},{"Kilogram","Gram","Imperial ton","Pound","Ounce"},
+    {"Mile per hour","Meter per second","Kilometer per hour","Knot"},{"Degree Celsius","Fahrenheit","Kelvin"}];
+  //var to=[];
   String? _dropdownvalue = "Area";
 
   @override
@@ -140,7 +137,7 @@ class _Converters_FileState extends State<Converters_File> {
                 ],
               ),
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Check"))
+            //ElevatedButton(onPressed: () {}, child: Text("Check"))
           ],
         ));
   }
