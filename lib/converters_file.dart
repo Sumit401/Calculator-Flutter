@@ -18,10 +18,18 @@ class _Converters_FileState extends State<Converters_File> {
     "Speed",
     "Temperature"
   ];
-  var from=[{"Centimeter","Kilometre","Millimetre","Meter","Mile","Foot","Inch"},{"Kilogram","Gram","Imperial ton","Pound","Ounce"},
-    {"Mile per hour","Meter per second","Kilometer per hour","Knot"},{"Degree Celsius","Fahrenheit","Kelvin"}];
+  var subitems1=["Centimeter","Kilometre","Millimetre","Meter","Mile","Foot","Inch"];
+  var subitems2=["Kilogram","Gram","Imperial ton","Pound","Ounce"];
+  var subitems3=["Mile per hour","Meter per second","Kilometer per hour","Knot"];
+  var subitems4=["Degree Celsius","Fahrenheit","Kelvin"];
+  //var i=1;
+  //var subitems=[{"Centimeter","Kilometre","Millimetre","Meter","Mile","Foot","Inch"},{"Kilogram","Gram","Imperial ton","Pound","Ounce"},
+    //{"Mile per hour","Meter per second","Kilometer per hour","Knot"},{"Degree Celsius","Fahrenheit","Kelvin"}];
   //var to=[];
-  String? _dropdownvalue = "Area";
+  String? _dropdownvalue = "Length";
+  String? _dropdownvalue_subitem1="Centimeter";
+  String? _dropdownvalue_subitem2="Kilogram";
+  String? _dropdownvalue_subitem3="Degree Celsius";
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +42,8 @@ class _Converters_FileState extends State<Converters_File> {
             Row(
               children: [
                 Center(
-                  child: Container(
+                  child:
+                  Container(
                     width: 400,
                     margin: EdgeInsets.all(16),
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -43,22 +52,20 @@ class _Converters_FileState extends State<Converters_File> {
                           .rectangle, /*border: Border.all(color: Colors.black)*/
                     ),
                     child: DropdownButton<String>(
-                      items: items
-                          .map((e) => DropdownMenuItem(
+                      items: items.map((e) => DropdownMenuItem(
                                 child: Text(e),
                                 value: e,
-                              ))
-                          .toList(),
+                              )).toList(),
                       isExpanded: true,
                       icon: Icon(FontAwesomeIcons.anglesDown,
                           color: Colors.black),
                       iconSize: 25,
+                      value: _dropdownvalue,
                       onChanged: (val) {
                         setState(() {
                           _dropdownvalue = val;
                         });
                       },
-                      value: _dropdownvalue,
                     ),
                   ),
                 ),
@@ -86,37 +93,40 @@ class _Converters_FileState extends State<Converters_File> {
                 ],
               ),
             ),
+
             Padding(
               padding: const EdgeInsets.only(
                   top: 20, bottom: 20, right: 40, left: 40),
-              child: Row(
+              child:
+                Row(
                 children: [
                   Expanded(
-                    child: DropdownButton<String>(
-                      items: items
-                          .map((e) => DropdownMenuItem(
-                                child: Text(e),
-                                value: e,
-                              ))
-                          .toList(),
-                      isExpanded: true,
-                      icon: Icon(FontAwesomeIcons.anglesDown,
-                          color: Colors.black),
-                      iconSize: 25,
-                      onChanged: (val) {
-                        setState(() {
-                          _dropdownvalue = val;
-                        });
-                      },
-                      value: _dropdownvalue,
-                    ),
+                    child:
+             DropdownButton<String>(
+            items: subitems1
+                .map((e) => DropdownMenuItem(
+            child: Text(e),
+            value: e,
+            ))
+                .toList(),
+            isExpanded: true,
+            icon: Icon(FontAwesomeIcons.anglesDown,
+            color: Colors.black),
+            iconSize: 25,
+            onChanged: (val) {
+            setState(() {
+            _dropdownvalue_subitem1 = val;
+            });
+            },
+            value: _dropdownvalue_subitem1,
+            ),
                   ),
                   VerticalDivider(
                     width: 40,
                   ),
                   Expanded(
                     child: DropdownButton<String>(
-                      items: items
+                      items: subitems1
                           .map((e) => DropdownMenuItem(
                                 child: Text(e),
                                 value: e,
@@ -128,15 +138,16 @@ class _Converters_FileState extends State<Converters_File> {
                       iconSize: 25,
                       onChanged: (val) {
                         setState(() {
-                          _dropdownvalue = val;
+                          _dropdownvalue_subitem1 = val;
                         });
                       },
-                      value: _dropdownvalue,
+                      value: _dropdownvalue_subitem1,
                     ),
                   ),
                 ],
               ),
             ),
+
             //ElevatedButton(onPressed: () {}, child: Text("Check"))
           ],
         ));
