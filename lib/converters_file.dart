@@ -13,7 +13,7 @@ class Converters_File extends StatefulWidget {
 
 class _Converters_FileState extends State<Converters_File> {
   var items = ["Length", "Mass", "Speed", "Temperature"];
-  var subitems1 = [
+  var length = [
     "Centimeter",
     "Kilometre",
     "Millimetre",
@@ -22,23 +22,28 @@ class _Converters_FileState extends State<Converters_File> {
     "Foot",
     "Inch"
   ];
-  var subitems2 = ["Kilogram", "Gram", "Imperial ton", "Pound", "Ounce"];
-  var subitems3 = [
+  var mass = ["Kilogram", "Gram", "Imperial ton", "Pound", "Ounce"];
+  var speed = [
     "Mile per hour",
     "Meter per second",
     "Kilometer per hour",
     "Knot"
   ];
-  var subitems4 = ["Degree Celsius", "Fahrenheit", "Kelvin"];
+  var temperature = ["Degree Celsius", "Fahrenheit", "Kelvin"];
 
   //var i=1;
   //var subitems=[{"Centimeter","Kilometre","Millimetre","Meter","Mile","Foot","Inch"},{"Kilogram","Gram","Imperial ton","Pound","Ounce"},
   //{"Mile per hour","Meter per second","Kilometer per hour","Knot"},{"Degree Celsius","Fahrenheit","Kelvin"}];
   //var to=[];
   String? _dropdownvalue = "Length";
-  String? _dropdownvalue_subitem1 = "Centimeter";
-  String? _dropdownvalue_subitem2 = "Kilogram";
-  String? _dropdownvalue_subitem3 = "Degree Celsius";
+  String? length1 = "Centimeter";
+  String? length2 = "Centimeter";
+  String? mass1 = "Kilogram";
+  String? mass2 = "Kilogram";
+  String speed1 ="Mile per hour";
+  String speed2 ="Mile per hour";
+  String? temp1 = "Degree Celsius";
+  String? temp2 = "Degree Celsius";
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +95,7 @@ class _Converters_FileState extends State<Converters_File> {
                   Expanded(
                       child: TextFormField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: "Seconds"),
+                        border: OutlineInputBorder(), labelText: length1),
                   )),
                   VerticalDivider(
                     width: 40,
@@ -98,7 +103,7 @@ class _Converters_FileState extends State<Converters_File> {
                   Expanded(
                       child: TextFormField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: "Minute"),
+                        border: OutlineInputBorder(), labelText: length2),
                   ))
                 ],
               ),
@@ -111,11 +116,10 @@ class _Converters_FileState extends State<Converters_File> {
                 children: [
                   Expanded(child: func(_dropdownvalue)),
                   VerticalDivider(width: 40,),
-                  Expanded(child: func(_dropdownvalue)),
+                  Expanded(child: func2(_dropdownvalue)),
                 ],
               ),
             ),
-
             //ElevatedButton(onPressed: () {}, child: Text("Check"))
           ],
         ));
@@ -123,7 +127,7 @@ class _Converters_FileState extends State<Converters_File> {
 
   Widget func(String? dropdownvalue) {
     return (DropdownButton<String>(
-      items: subitems1
+      items: length
           .map((e) => DropdownMenuItem(
                 child: Text(e),
                 value: e,
@@ -134,10 +138,29 @@ class _Converters_FileState extends State<Converters_File> {
       iconSize: 25,
       onChanged: (val) {
         setState(() {
-          _dropdownvalue_subitem1 = val;
+          length1 = val;
         });
       },
-      value: _dropdownvalue_subitem1,
+      value: length1,
+    ));
+  }
+  Widget func2(String? dropdownvalue) {
+    return (DropdownButton<String>(
+      items: length
+          .map((e) => DropdownMenuItem(
+        child: Text(e),
+        value: e,
+      ))
+          .toList(),
+      isExpanded: true,
+      icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
+      iconSize: 25,
+      onChanged: (val) {
+        setState(() {
+          length2 = val;
+        });
+      },
+      value: length2,
     ));
   }
 }
