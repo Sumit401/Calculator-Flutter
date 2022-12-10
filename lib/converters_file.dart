@@ -44,6 +44,8 @@ class _Converters_FileState extends State<Converters_File> {
   String? speed2 ="Mile per hour";
   String? temp1 = "Degree Celsius";
   String? temp2 = "Degree Celsius";
+  String? k1="";
+  String? k2="";
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +97,7 @@ class _Converters_FileState extends State<Converters_File> {
                   Expanded(
                       child: TextFormField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: length1),
+                        border: OutlineInputBorder(), labelText: k1),
                   )),
                   VerticalDivider(
                     width: 40,
@@ -103,7 +105,7 @@ class _Converters_FileState extends State<Converters_File> {
                   Expanded(
                       child: TextFormField(
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: length2),
+                        border: OutlineInputBorder(), labelText: k2),
                   ))
                 ],
               ),
@@ -132,7 +134,7 @@ class _Converters_FileState extends State<Converters_File> {
             .map((e) =>
             DropdownMenuItem(
               child: Text(e),
-              value: e,
+              value:e,
             ))
             .toList(),
         isExpanded: true,
@@ -141,6 +143,7 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             length1 = val;
+            k1=val;
           });
         },
         value: length1,
@@ -159,7 +162,8 @@ class _Converters_FileState extends State<Converters_File> {
         iconSize: 25,
         onChanged: (val) {
           setState(() {
-            mass1 = val;
+            mass1=val;
+            k1 = val;
           });
         },
         value: mass1,
@@ -180,13 +184,14 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             speed1 = val;
+            k1=val;
           });
         },
         value: speed1,
       ));
     }else {
       return (DropdownButton<String>(
-        items: length
+        items: temperature
             .map((e) =>
             DropdownMenuItem(
               child: Text(e),
@@ -199,6 +204,7 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             temp1 = val;
+            k1=val;
           });
         },
         value: temp1,
@@ -222,6 +228,7 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             length2 = val;
+            k2=val;
           });
         },
         value: length2,
@@ -242,6 +249,7 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             mass2 = val;
+            k2=val;
           });
         },
         value: mass2,
@@ -261,13 +269,14 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             speed2 = val;
+            k2=val;
           });
         },
         value: speed2,
       ));
     }else {
       return (DropdownButton<String>(
-        items: length
+        items: temperature
             .map((e) =>
             DropdownMenuItem(
               child: Text(e),
@@ -280,6 +289,7 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             temp2 = val;
+            k2=val;
           });
         },
         value: temp2,
