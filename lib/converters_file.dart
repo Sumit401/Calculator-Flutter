@@ -40,8 +40,8 @@ class _Converters_FileState extends State<Converters_File> {
   String? length2 = "Centimeter";
   String? mass1 = "Kilogram";
   String? mass2 = "Kilogram";
-  String speed1 ="Mile per hour";
-  String speed2 ="Mile per hour";
+  String? speed1 ="Mile per hour";
+  String? speed2 ="Mile per hour";
   String? temp1 = "Degree Celsius";
   String? temp2 = "Degree Celsius";
 
@@ -126,43 +126,164 @@ class _Converters_FileState extends State<Converters_File> {
   }
 
   Widget func(String? dropdownvalue) {
-    return (DropdownButton<String>(
-      items: length
-          .map((e) => DropdownMenuItem(
-                child: Text(e),
-                value: e,
-              ))
-          .toList(),
-      isExpanded: true,
-      icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
-      iconSize: 25,
-      onChanged: (val) {
-        setState(() {
-          length1 = val;
-        });
-      },
-      value: length1,
-    ));
+    if (dropdownvalue == "Length") {
+      return (DropdownButton<String>(
+        items: length
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
+            .toList(),
+        isExpanded: true,
+        icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
+        iconSize: 25,
+        onChanged: (val) {
+          setState(() {
+            length1 = val;
+          });
+        },
+        value: length1,
+      ));
+    }else if(_dropdownvalue=="Mass"){
+      return (DropdownButton<String>(
+        items: mass
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
+            .toList(),
+        isExpanded: true,
+        icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
+        iconSize: 25,
+        onChanged: (val) {
+          setState(() {
+            mass1 = val;
+          });
+        },
+        value: mass1,
+      ));
+    }
+    else if(_dropdownvalue=="Speed"){
+      return (DropdownButton<String>(
+        items: speed
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
+            .toList(),
+        isExpanded: true,
+        icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
+        iconSize: 25,
+        onChanged: (val) {
+          setState(() {
+            speed1 = val;
+          });
+        },
+        value: speed1,
+      ));
+    }else {
+      return (DropdownButton<String>(
+        items: length
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
+            .toList(),
+        isExpanded: true,
+        icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
+        iconSize: 25,
+        onChanged: (val) {
+          setState(() {
+            temp1 = val;
+          });
+        },
+        value: temp1,
+      ));
+    }
   }
-  Widget func2(String? dropdownvalue) {
 
-    return(DropdownButton<String>(
-      items: length
-          .map((e) =>
-          DropdownMenuItem(
-            child: Text(e),
-            value: e,
-          ))
-          .toList(),
-      isExpanded: true,
-      icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
-      iconSize: 25,
-      onChanged: (val) {
-        setState(() {
-          length2 = val;
-        });
-      },
-      value: length2,
-    ));
+  Widget func2(String? dropdownvalue) {
+    if (_dropdownvalue == "Length") {
+      return (DropdownButton<String>(
+        items: length
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
+            .toList(),
+        isExpanded: true,
+        icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
+        iconSize: 25,
+        onChanged: (val) {
+          setState(() {
+            length2 = val;
+          });
+        },
+        value: length2,
+      ));
+    }
+    else if (_dropdownvalue == "Mass") {
+      return (DropdownButton<String>(
+        items: mass
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
+            .toList(),
+        isExpanded: true,
+        icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
+        iconSize: 25,
+        onChanged: (val) {
+          setState(() {
+            mass2 = val;
+          });
+        },
+        value: mass2,
+      ));
+    }else if (_dropdownvalue == "Speed") {
+      return (DropdownButton<String>(
+        items: speed
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
+            .toList(),
+        isExpanded: true,
+        icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
+        iconSize: 25,
+        onChanged: (val) {
+          setState(() {
+            speed2 = val;
+          });
+        },
+        value: speed2,
+      ));
+    }else {
+      return (DropdownButton<String>(
+        items: length
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
+            .toList(),
+        isExpanded: true,
+        icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
+        iconSize: 25,
+        onChanged: (val) {
+          setState(() {
+            temp2 = val;
+          });
+        },
+        value: temp2,
+      ));
+    }
   }
 }
