@@ -47,8 +47,9 @@ class _Converters_FileState extends State<Converters_File> {
   String? temp2 = "Degree Celsius";
   String? k1 = "Centimeter";
   String? k2 = "Centimeter";
-  String? text_input_field ="";
-  late TextEditingController _c ;
+  String? text_input_field = "";
+  String? calculated_value="";
+  late TextEditingController _c;
 
   @override
   void initState() {
@@ -56,12 +57,14 @@ class _Converters_FileState extends State<Converters_File> {
     // TODO: implement initState
     super.initState();
   }
+
   @override
   void dispose() {
     _c?.dispose();
     // TODO: implement dispose
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,10 +86,11 @@ class _Converters_FileState extends State<Converters_File> {
                     ),
                     child: DropdownButton<String>(
                       items: items
-                          .map((e) => DropdownMenuItem(
-                                child: Text(e),
-                                value: e,
-                              ))
+                          .map((e) =>
+                          DropdownMenuItem(
+                            child: Text(e),
+                            value: e,
+                          ))
                           .toList(),
                       isExpanded: true,
                       icon: Icon(FontAwesomeIcons.anglesDown,
@@ -111,14 +115,14 @@ class _Converters_FileState extends State<Converters_File> {
                 children: [
                   Expanded(
                       child: TextFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder()),
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder()),
                         onChanged: (value) {
-                        text_input_field=value;
-                        print(value);
+                          text_input_field = value;
+                          print(value);
                         },
                         controller: _c,
-                  )),
+                      )),
                   VerticalDivider(
                     width: 40,
                   ),
@@ -143,13 +147,94 @@ class _Converters_FileState extends State<Converters_File> {
             ),
             ElevatedButton(onPressed: () {
               setState(() {
-                var c=(_c.text).toString();
-
+                var c = int.parse(_c.text);
+                calculation_func(c);
               });
             }, child: Text("Check"),
             )
           ],
         ));
+  }
+// Function to Do Calculations
+
+  void calculation_func(int c) {
+    if (_dropdownvalue == "Length") {
+      if (length1 == "Centimeter") {
+        if (length2 == "Centimeter") {
+          calculated_value = c.toString();
+        } else if (length2 == "Kilometre") {
+          calculated_value = (c / 100000).toString();
+        } else if (length2 == "Millimetre") {
+          calculated_value = (c * 10).toString();
+        } else if (length2 == "Meter") {
+          calculated_value = (c / 100).toString();
+        } else if (length2 == "Mile") {
+          calculated_value = (c/160900).toString();
+        } else if (length2 == "Foot") {
+          calculated_value = (c/30.48).toString();
+        } else if (length2 == "Inch") {
+          calculated_value = (c * 2.54).toString();
+        }
+      }else if(length1=="Kilometre"){
+        if (length2 == "Centimeter") {
+          calculated_value = (c * 100000).toString();
+        } else if (length2 == "Kilometre") {
+          calculated_value = (c).toString();
+        } else if (length2 == "Millimetre") {
+          calculated_value = (c * 1000000).toString();
+        } else if (length2 == "Meter") {
+          calculated_value = (c / 10).toString();
+        } else if (length2 == "Mile") {
+          calculated_value = (c/1.609).toString();
+        } else if (length2 == "Foot") {
+          calculated_value = (c*3281).toString();
+        } else if (length2 == "Inch") {
+          calculated_value = (c * 39370).toString();
+        }
+      }else if(length1=="Millimetre"){
+        if (length2 == "Centimeter") {
+          calculated_value = (c / 10).toString();
+        } else if (length2 == "Kilometre") {
+          calculated_value = (c/1000000).toString();
+        } else if (length2 == "Millimetre") {
+          calculated_value = (c ).toString();
+        } else if (length2 == "Meter") {
+          calculated_value = (c / 1000).toString();
+        } else if (length2 == "Mile") {
+          calculated_value = (c/1609344).toString();
+        } else if (length2 == "Foot") {
+          calculated_value = (c/304.8).toString();
+        } else if (length2 == "Inch") {
+          calculated_value = (c / 25.4 ).toString();
+        }
+      }else if(length1=="Meter"){
+        if (length2 == "Centimeter") {
+          calculated_value = (c / 10).toString();
+        } else if (length2 == "Kilometre") {
+          calculated_value = (c/1000000).toString();
+        } else if (length2 == "Millimetre") {
+          calculated_value = (c ).toString();
+        } else if (length2 == "Meter") {
+          calculated_value = (c / 1000).toString();
+        } else if (length2 == "Mile") {
+          calculated_value = (c/1609344).toString();
+        } else if (length2 == "Foot") {
+          calculated_value = (c/304.8).toString();
+        } else if (length2 == "Inch") {
+          calculated_value = (c / 25.4 ).toString();
+        }
+      }
+
+    } else if(_dropdownvalue=="Mass"){
+
+   }else if(_dropdownvalue=="Speed"){
+
+   }else if(_dropdownvalue=="Temperature"){
+
+   }
+   setState(() {
+     text_input_field=calculated_value;
+   });
   }
 
   Widget func(String? dropdownvalue) {
@@ -158,10 +243,11 @@ class _Converters_FileState extends State<Converters_File> {
       k2 = "Centimeter";
       return (DropdownButton<String>(
         items: length
-            .map((e) => DropdownMenuItem(
-                  child: Text(e),
-                  value: e,
-                ))
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -179,10 +265,11 @@ class _Converters_FileState extends State<Converters_File> {
       k2 = "Kilogram";
       return (DropdownButton<String>(
         items: mass
-            .map((e) => DropdownMenuItem(
-                  child: Text(e),
-                  value: e,
-                ))
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -200,10 +287,11 @@ class _Converters_FileState extends State<Converters_File> {
       k2 = "Mile per hour";
       return (DropdownButton<String>(
         items: speed
-            .map((e) => DropdownMenuItem(
-                  child: Text(e),
-                  value: e,
-                ))
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -221,10 +309,11 @@ class _Converters_FileState extends State<Converters_File> {
       k2 = "Degree Celsius";
       return (DropdownButton<String>(
         items: temperature
-            .map((e) => DropdownMenuItem(
-                  child: Text(e),
-                  value: e,
-                ))
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -244,10 +333,11 @@ class _Converters_FileState extends State<Converters_File> {
     if (_dropdownvalue == "Length") {
       return (DropdownButton<String>(
         items: length
-            .map((e) => DropdownMenuItem(
-                  child: Text(e),
-                  value: e,
-                ))
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -263,10 +353,11 @@ class _Converters_FileState extends State<Converters_File> {
     } else if (_dropdownvalue == "Mass") {
       return (DropdownButton<String>(
         items: mass
-            .map((e) => DropdownMenuItem(
-                  child: Text(e),
-                  value: e,
-                ))
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -282,10 +373,11 @@ class _Converters_FileState extends State<Converters_File> {
     } else if (_dropdownvalue == "Speed") {
       return (DropdownButton<String>(
         items: speed
-            .map((e) => DropdownMenuItem(
-                  child: Text(e),
-                  value: e,
-                ))
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -301,10 +393,11 @@ class _Converters_FileState extends State<Converters_File> {
     } else {
       return (DropdownButton<String>(
         items: temperature
-            .map((e) => DropdownMenuItem(
-                  child: Text(e),
-                  value: e,
-                ))
+            .map((e) =>
+            DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
