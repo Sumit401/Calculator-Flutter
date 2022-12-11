@@ -183,7 +183,7 @@ class _Converters_FileState extends State<Converters_File> {
         } else if (length2 == "Millimetre") {
           calculated_value = (c * 1000000).toString();
         } else if (length2 == "Meter") {
-          calculated_value = (c / 10).toString();
+          calculated_value = (c * 1000).toString();
         } else if (length2 == "Mile") {
           calculated_value = (c/1.609).toString();
         } else if (length2 == "Foot") {
@@ -209,19 +209,19 @@ class _Converters_FileState extends State<Converters_File> {
         }
       }else if(length1=="Meter"){
         if (length2 == "Centimeter") {
-          calculated_value = (c / 10).toString();
+          calculated_value = (c *10).toString();
         } else if (length2 == "Kilometre") {
-          calculated_value = (c/1000000).toString();
+          calculated_value = (c/1000).toString();
         } else if (length2 == "Millimetre") {
-          calculated_value = (c ).toString();
+          calculated_value = (c *1000).toString();
         } else if (length2 == "Meter") {
-          calculated_value = (c / 1000).toString();
+          calculated_value = (c).toString();
         } else if (length2 == "Mile") {
-          calculated_value = (c/1609344).toString();
+          calculated_value = (c/1609).toString();
         } else if (length2 == "Foot") {
-          calculated_value = (c/304.8).toString();
+          calculated_value = (c*3.281).toString();
         } else if (length2 == "Inch") {
-          calculated_value = (c / 25.4 ).toString();
+          calculated_value = (c * 39.3701 ).toString();
         }
       }
 

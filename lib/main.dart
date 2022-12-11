@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:project/converters_file.dart';
 import 'package:project/scientific.dart';
 import '/basic.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]).then((value) => runApp(MyApp()));
   runApp(MyApp());
 }
 
