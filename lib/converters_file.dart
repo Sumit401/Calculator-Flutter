@@ -48,7 +48,20 @@ class _Converters_FileState extends State<Converters_File> {
   String? k1 = "Centimeter";
   String? k2 = "Centimeter";
   String? text_input_field ="";
+  late TextEditingController _c ;
 
+  @override
+  void initState() {
+    _c = new TextEditingController(text: text_input_field);
+    // TODO: implement initState
+    super.initState();
+  }
+  @override
+  void dispose() {
+    _c?.dispose();
+    // TODO: implement dispose
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,20 +112,18 @@ class _Converters_FileState extends State<Converters_File> {
                   Expanded(
                       child: TextFormField(
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: k1,),
+                        border: OutlineInputBorder()),
                         onChanged: (value) {
                         text_input_field=value;
                         print(value);
                         },
+                        controller: _c,
                   )),
                   VerticalDivider(
                     width: 40,
                   ),
                   Expanded(
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: k2),
-                  ))
+                      child: Text(text_input_field!))
                 ],
               ),
             ),
@@ -130,7 +141,13 @@ class _Converters_FileState extends State<Converters_File> {
                 ],
               ),
             ),
-            //ElevatedButton(onPressed: () {}, child: Text("Check"))
+            ElevatedButton(onPressed: () {
+              setState(() {
+                var c=(_c.text).toString();
+
+              });
+            }, child: Text("Check"),
+            )
           ],
         ));
   }
