@@ -35,17 +35,19 @@ class _Converters_FileState extends State<Converters_File> {
   //var subitems=[{"Centimeter","Kilometre","Millimetre","Meter","Mile","Foot","Inch"},{"Kilogram","Gram","Imperial ton","Pound","Ounce"},
   //{"Mile per hour","Meter per second","Kilometer per hour","Knot"},{"Degree Celsius","Fahrenheit","Kelvin"}];
   //var to=[];
+
   String? _dropdownvalue = "Length";
   String? length1 = "Centimeter";
   String? length2 = "Centimeter";
   String? mass1 = "Kilogram";
   String? mass2 = "Kilogram";
-  String? speed1 ="Mile per hour";
-  String? speed2 ="Mile per hour";
+  String? speed1 = "Mile per hour";
+  String? speed2 = "Mile per hour";
   String? temp1 = "Degree Celsius";
   String? temp2 = "Degree Celsius";
-  String? k1="";
-  String? k2="";
+  String? k1 = "Centimeter";
+  String? k2 = "Centimeter";
+  String? text_input_field ="";
 
   @override
   Widget build(BuildContext context) {
@@ -96,15 +98,19 @@ class _Converters_FileState extends State<Converters_File> {
                 children: [
                   Expanded(
                       child: TextFormField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: k1),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(), labelText: k1,),
+                        onChanged: (value) {
+                        text_input_field=value;
+                        print(value);
+                        },
                   )),
                   VerticalDivider(
                     width: 40,
                   ),
                   Expanded(
                       child: TextFormField(
-                    decoration: InputDecoration(
+                        decoration: InputDecoration(
                         border: OutlineInputBorder(), labelText: k2),
                   ))
                 ],
@@ -117,7 +123,9 @@ class _Converters_FileState extends State<Converters_File> {
               child: Row(
                 children: [
                   Expanded(child: func(_dropdownvalue)),
-                  VerticalDivider(width: 40,),
+                  VerticalDivider(
+                    width: 40,
+                  ),
                   Expanded(child: func2(_dropdownvalue)),
                 ],
               ),
@@ -129,13 +137,14 @@ class _Converters_FileState extends State<Converters_File> {
 
   Widget func(String? dropdownvalue) {
     if (dropdownvalue == "Length") {
+      k1 = "Centimeter";
+      k2 = "Centimeter";
       return (DropdownButton<String>(
         items: length
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value:e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -143,40 +152,41 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             length1 = val;
-            k1=val;
+            k1 = val;
           });
         },
         value: length1,
       ));
-    }else if(_dropdownvalue=="Mass"){
+    } else if (_dropdownvalue == "Mass") {
+      k1 = "Kilogram";
+      k2 = "Kilogram";
       return (DropdownButton<String>(
         items: mass
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
         iconSize: 25,
         onChanged: (val) {
           setState(() {
-            mass1=val;
+            mass1 = val;
             k1 = val;
           });
         },
         value: mass1,
       ));
-    }
-    else if(_dropdownvalue=="Speed"){
+    } else if (_dropdownvalue == "Speed") {
+      k1 = "Mile per hour";
+      k2 = "Mile per hour";
       return (DropdownButton<String>(
         items: speed
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -184,19 +194,20 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             speed1 = val;
-            k1=val;
+            k1 = val;
           });
         },
         value: speed1,
       ));
-    }else {
+    } else {
+      k1 = "Degree Celsius";
+      k2 = "Degree Celsius";
       return (DropdownButton<String>(
         items: temperature
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -204,7 +215,7 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             temp1 = val;
-            k1=val;
+            k1 = val;
           });
         },
         value: temp1,
@@ -216,11 +227,10 @@ class _Converters_FileState extends State<Converters_File> {
     if (_dropdownvalue == "Length") {
       return (DropdownButton<String>(
         items: length
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -228,20 +238,18 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             length2 = val;
-            k2=val;
+            k2 = val;
           });
         },
         value: length2,
       ));
-    }
-    else if (_dropdownvalue == "Mass") {
+    } else if (_dropdownvalue == "Mass") {
       return (DropdownButton<String>(
         items: mass
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -249,19 +257,18 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             mass2 = val;
-            k2=val;
+            k2 = val;
           });
         },
         value: mass2,
       ));
-    }else if (_dropdownvalue == "Speed") {
+    } else if (_dropdownvalue == "Speed") {
       return (DropdownButton<String>(
         items: speed
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -269,19 +276,18 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             speed2 = val;
-            k2=val;
+            k2 = val;
           });
         },
         value: speed2,
       ));
-    }else {
+    } else {
       return (DropdownButton<String>(
         items: temperature
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -289,7 +295,7 @@ class _Converters_FileState extends State<Converters_File> {
         onChanged: (val) {
           setState(() {
             temp2 = val;
-            k2=val;
+            k2 = val;
           });
         },
         value: temp2,
