@@ -17,7 +17,10 @@ class _ScientificState extends State<Scientific> {
 
   @override
   Widget build(BuildContext context) {
+    var max_height= (MediaQuery.of(context).size.height);
+    print(max_height);
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: Text("Scientific Calculator"), // Title of the activity
       ),
@@ -36,7 +39,7 @@ class _ScientificState extends State<Scientific> {
                 children: [
                   Expanded(
                     child: Container(
-                      height: (MediaQuery.of(context).size.height)/6,
+
                       color: Colors.green,
                       alignment: Alignment.bottomRight,
                       child: Text(
@@ -55,7 +58,7 @@ class _ScientificState extends State<Scientific> {
                 children: [
                   Expanded(
                     child: Container(
-                      height: (MediaQuery.of(context).size.height)/6,
+
                       margin: EdgeInsets.only(bottom: 10),
                       alignment: Alignment.bottomRight,
                       color: Colors.redAccent,
@@ -73,7 +76,6 @@ class _ScientificState extends State<Scientific> {
                 children: [
                   Expanded(
                     child: Container(
-                      height: (MediaQuery.of(context).size.height)/2,
                       color: Colors.blue,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -141,181 +143,287 @@ class _ScientificState extends State<Scientific> {
 
   Widget custom_sc_btn(String val) { 
     if (val == "root") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.squareRootVariable,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.squareRootVariable,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     } else if (val == "BS") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.deleteLeft,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.deleteLeft,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     } else if (val == "CS") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.circleXmark,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.circleXmark,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     } else if (val == "pow") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Text(
-          "x\u02b8",
-          style: TextStyle(color: Colors.black, fontSize: 20),
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.angleUp,
+              size: 20,
+              color: Colors.black,
+            ),
+            ),
+        ))),
+      );
     } else if (val == "log") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Text("log",
-            style: TextStyle(color: Colors.black, fontSize: 20)),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Text("log",
+                style: TextStyle(color: Colors.black, fontSize: 20)),
+          ),
+        ))),
+      );
     } else if (val == "=") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.equals,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18,),
+            child: Icon(
+              FontAwesomeIcons.equals,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "1") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.one,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.one,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "2") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.two,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.two,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "3") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.three,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.three,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "4") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.four,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.four,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "5") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.five,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18.0),
+            child: Icon(
+              FontAwesomeIcons.five,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "6") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.six,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.six,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "7") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.seven,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.seven,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "8") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.eight,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.eight,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "9") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.nine,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.nine,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "0") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.zero,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.zero,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "+") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.plus,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.plus,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "-") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Icon(
-          FontAwesomeIcons.minus,
-          size: 20,
-          color: Colors.black,
-        ),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Icon(
+              FontAwesomeIcons.minus,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ))),
+      );
     }else if (val == "e") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Text("e",
-            style: TextStyle(fontSize: 20, color: Colors.black))
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Text("e",
+                style: TextStyle(fontSize: 20, color: Colors.black)),
+          )
+        ))),
+      );
     }
     else if (val == "pie") {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Text("pie",
-            style: TextStyle(fontSize: 20, color: Colors.black)),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Text("pie",
+                style: TextStyle(fontSize: 20, color: Colors.black)),
+          ),
+        ))),
+      );
     } else {
-      return ((OutlinedButton(
-        onPressed: () => {tasktocarryout(val)},
-        child: Text(val, style: TextStyle(fontSize: 20, color: Colors.black)),
-      )));
+      return Expanded(
+        child: ((OutlinedButton(
+          onPressed: () => {tasktocarryout(val)},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18),
+            child: Text(val, style: TextStyle(fontSize: 20, color: Colors.black)),
+          ),
+        ))),
+      );
     }
   }
 
