@@ -47,13 +47,13 @@ class _Converters_FileState extends State<Converters_File> {
   String? temp2 = "Degree Celsius";
   String? k1 = "Centimeter";
   String? k2 = "Centimeter";
-  String? text_input_field = "";
+  String? text_input_field = "Output";
   String? calculated_value = "";
   late TextEditingController _c;
 
   @override
   void initState() {
-    _c = new TextEditingController(text: text_input_field);
+    _c = TextEditingController(text: "");
     // TODO: implement initState
     super.initState();
   }
@@ -75,9 +75,8 @@ class _Converters_FileState extends State<Converters_File> {
           children: [
             Row(
               children: [
-                Center(
+                Expanded(
                   child: Container(
-                    width: 400,
                     margin: EdgeInsets.all(16),
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                     decoration: BoxDecoration(
@@ -114,17 +113,25 @@ class _Converters_FileState extends State<Converters_File> {
                 children: [
                   Expanded(
                       child: TextFormField(
-                    decoration: InputDecoration(border: OutlineInputBorder()),
-                    onChanged: (value) {
-                      text_input_field = value;
-                      print(value);
-                    },
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(), labelText: "Enter Value"),
                     controller: _c,
                   )),
                   VerticalDivider(
                     width: 40,
                   ),
-                  Expanded(child: Text(text_input_field!))
+                  Expanded(
+                      child: SizedBox(
+                          child: Container(
+                            decoration: BoxDecoration(
+                            border: Border.all(
+                            color: Colors.black54,
+                            width: 2,
+                            strokeAlign: StrokeAlign.outside,),
+                            borderRadius: BorderRadius.circular(8)),
+                            padding: EdgeInsets.all(15),
+                            child: Text(text_input_field!),
+                  )))
                 ],
               ),
             ),

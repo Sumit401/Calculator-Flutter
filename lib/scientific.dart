@@ -24,78 +24,92 @@ class _ScientificState extends State<Scientific> {
 
       //Below Layout Design for the activity
       body: Container(
-        margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            //Below for sub output section
-            Expanded(
-              child: Container(
-                alignment: Alignment.bottomRight,
-                child: Text(
-                  todisplayoutput,
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black54,
-                      fontWeight: FontWeight.w300),
+        alignment: Alignment.bottomCenter,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                //Below for sub output section
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        alignment: Alignment.bottomRight,
+                        child: Text(
+                          todisplayoutput,
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black54,
+                              fontWeight: FontWeight.w300),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-            // Below Four Output section
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.only(bottom: 10),
-                alignment: Alignment.bottomRight,
-                child: Text(
-                  todisplayoutput,
-                  style: TextStyle(fontSize: 50, color: Colors.black),
+                // Below Four Output section
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 10),
+                        alignment: Alignment.bottomRight,
+                        child: Text(
+                          todisplayoutput,
+                          style: TextStyle(fontSize: 50, color: Colors.black),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+                // Below section for buttons
+                Row(children: [
+                  custom_sc_btn("root"),
+                  custom_sc_btn("pow"),
+                  custom_sc_btn("CS"),
+                  custom_sc_btn("BS"),
+                  custom_sc_btn("=")
+                ]),
+                Row(children: [
+                  custom_sc_btn("sin"),
+                  custom_sc_btn("cos"),
+                  custom_sc_btn("tan"),
+                  custom_sc_btn("pie"),
+                  custom_sc_btn("exp")
+                ]),
+                Row(children: [
+                  custom_sc_btn("log"),
+                  custom_sc_btn("9"),
+                  custom_sc_btn("8"),
+                  custom_sc_btn("7"),
+                  custom_sc_btn("+")
+                ]),
+                Row(children: [
+                  custom_sc_btn("1/x"),
+                  custom_sc_btn("6"),
+                  custom_sc_btn("5"),
+                  custom_sc_btn("4"),
+                  custom_sc_btn("-")
+                ]),
+                Row(children: [
+                  custom_sc_btn("x!"),
+                  custom_sc_btn("3"),
+                  custom_sc_btn("2"),
+                  custom_sc_btn("1"),
+                  custom_sc_btn("*")
+                ]),
+                Row(children: [
+                  custom_sc_btn("e"),
+                  custom_sc_btn("."),
+                  custom_sc_btn("0"),
+                  custom_sc_btn("%"),
+                  custom_sc_btn("/")
+                ])
+              ],
             ),
-            // Below section for buttons
-            Row(children: [
-              custom_sc_btn("root"),
-              custom_sc_btn("pow"),
-              custom_sc_btn("CS"),
-              custom_sc_btn("BS"),
-              custom_sc_btn("=")
-            ]),
-            Row(children: [
-              custom_sc_btn("sin"),
-              custom_sc_btn("cos"),
-              custom_sc_btn("tan"),
-              custom_sc_btn("pie"),
-              custom_sc_btn("exp")
-            ]),
-            Row(children: [
-              custom_sc_btn("log"),
-              custom_sc_btn("9"),
-              custom_sc_btn("8"),
-              custom_sc_btn("7"),
-              custom_sc_btn("+")
-            ]),
-            Row(children: [
-              custom_sc_btn("1/x"),
-              custom_sc_btn("6"),
-              custom_sc_btn("5"),
-              custom_sc_btn("4"),
-              custom_sc_btn("-")
-            ]),
-            Row(children: [
-              custom_sc_btn("x!"),
-              custom_sc_btn("3"),
-              custom_sc_btn("2"),
-              custom_sc_btn("1"),
-              custom_sc_btn("*")
-            ]),
-            Row(children: [
-              custom_sc_btn("e"),
-              custom_sc_btn("."),
-              custom_sc_btn("0"),
-              custom_sc_btn("%"),
-              custom_sc_btn("/")
-            ])
-          ],
+          ),
         ),
       ),
     );

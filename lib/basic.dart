@@ -20,7 +20,7 @@ class _Main_screenState extends State<Main_screen> {
         body: Container(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(20.0),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
