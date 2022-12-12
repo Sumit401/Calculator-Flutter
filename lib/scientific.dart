@@ -14,6 +14,7 @@ class Scientific extends StatefulWidget {
 }
 
 class _ScientificState extends State<Scientific> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,90 +26,107 @@ class _ScientificState extends State<Scientific> {
       //Below Layout Design for the activity
       body: Container(
         alignment: Alignment.bottomCenter,
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                //Below for sub output section
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          todisplayoutput,
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black54,
-                              fontWeight: FontWeight.w300),
-                        ),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              //Below for sub output section
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: (MediaQuery.of(context).size.height)/6,
+                      color: Colors.green,
+                      alignment: Alignment.bottomRight,
+                      child: Text(
+                        todisplayoutput,
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black54,
+                            fontWeight: FontWeight.w300),
                       ),
                     ),
-                  ],
-                ),
-                // Below Four Output section
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(bottom: 10),
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          todisplayoutput,
-                          style: TextStyle(fontSize: 50, color: Colors.black),
-                        ),
+                  ),
+                ],
+              ),
+              // Below Four Output section
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: (MediaQuery.of(context).size.height)/6,
+                      margin: EdgeInsets.only(bottom: 10),
+                      alignment: Alignment.bottomRight,
+                      color: Colors.redAccent,
+                      child: Text(
+                        todisplayoutput,
+                        style: TextStyle(fontSize: 50, color: Colors.black),
                       ),
                     ),
-                  ],
-                ),
-                // Below section for buttons
-                Row(children: [
-                  custom_sc_btn("root"),
-                  custom_sc_btn("pow"),
-                  custom_sc_btn("CS"),
-                  custom_sc_btn("BS"),
-                  custom_sc_btn("=")
-                ]),
-                Row(children: [
-                  custom_sc_btn("sin"),
-                  custom_sc_btn("cos"),
-                  custom_sc_btn("tan"),
-                  custom_sc_btn("pie"),
-                  custom_sc_btn("exp")
-                ]),
-                Row(children: [
-                  custom_sc_btn("log"),
-                  custom_sc_btn("9"),
-                  custom_sc_btn("8"),
-                  custom_sc_btn("7"),
-                  custom_sc_btn("+")
-                ]),
-                Row(children: [
-                  custom_sc_btn("1/x"),
-                  custom_sc_btn("6"),
-                  custom_sc_btn("5"),
-                  custom_sc_btn("4"),
-                  custom_sc_btn("-")
-                ]),
-                Row(children: [
-                  custom_sc_btn("x!"),
-                  custom_sc_btn("3"),
-                  custom_sc_btn("2"),
-                  custom_sc_btn("1"),
-                  custom_sc_btn("*")
-                ]),
-                Row(children: [
-                  custom_sc_btn("e"),
-                  custom_sc_btn("."),
-                  custom_sc_btn("0"),
-                  custom_sc_btn("%"),
-                  custom_sc_btn("/")
-                ])
-              ],
-            ),
+                  ),
+                ],
+              ),
+              // Below section for buttons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: (MediaQuery.of(context).size.height)/2,
+                      color: Colors.blue,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                            custom_sc_btn("root"),
+                            custom_sc_btn("pow"),
+                            custom_sc_btn("CS"),
+                            custom_sc_btn("BS"),
+                            custom_sc_btn("=")
+                          ]),
+                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                            custom_sc_btn("sin"),
+                            custom_sc_btn("cos"),
+                            custom_sc_btn("tan"),
+                            custom_sc_btn("pie"),
+                            custom_sc_btn("exp")
+                          ]),
+                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                            custom_sc_btn("log"),
+                            custom_sc_btn("9"),
+                            custom_sc_btn("8"),
+                            custom_sc_btn("7"),
+                            custom_sc_btn("+")
+                          ]),
+                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                            custom_sc_btn("1/x"),
+                            custom_sc_btn("6"),
+                            custom_sc_btn("5"),
+                            custom_sc_btn("4"),
+                            custom_sc_btn("-")
+                          ]),
+                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                            custom_sc_btn("x!"),
+                            custom_sc_btn("3"),
+                            custom_sc_btn("2"),
+                            custom_sc_btn("1"),
+                            custom_sc_btn("*")
+                          ]),
+                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                            custom_sc_btn("e"),
+                            custom_sc_btn("."),
+                            custom_sc_btn("0"),
+                            custom_sc_btn("%"),
+                            custom_sc_btn("/")
+                          ])
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
@@ -121,108 +139,183 @@ class _ScientificState extends State<Scientific> {
   //////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////
 
-  Widget custom_sc_btn(String val) {
+  Widget custom_sc_btn(String val) { 
     if (val == "root") {
-      return (Expanded(
-        child: (OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-              padding: const EdgeInsets.only(bottom: 30, top: 30),
-              child: Icon(
-                FontAwesomeIcons.squareRootVariable,
-                size: 20,
-                color: Colors.black,
-              )),
-        )),
-      ));
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.squareRootVariable,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
     } else if (val == "BS") {
-      return (Expanded(
-        child: (OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-              padding: const EdgeInsets.only(bottom: 30, top: 30),
-              child: Icon(
-                FontAwesomeIcons.deleteLeft,
-                size: 20,
-                color: Colors.black,
-              )),
-        )),
-      ));
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.deleteLeft,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
     } else if (val == "CS") {
-      return (Expanded(
-        child: (OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-              padding: const EdgeInsets.only(bottom: 30, top: 30),
-              child: Icon(
-                FontAwesomeIcons.circleXmark,
-                size: 20,
-                color: Colors.black,
-              )),
-        )),
-      ));
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.circleXmark,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
     } else if (val == "pow") {
-      return (Expanded(
-        child: (OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-              padding: const EdgeInsets.only(bottom: 30, top: 30),
-              child: Text(
-                "x\u02b8",
-                style: TextStyle(color: Colors.black, fontSize: 20),
-              )),
-        )),
-      ));
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Text(
+          "x\u02b8",
+          style: TextStyle(color: Colors.black, fontSize: 20),
+        ),
+      )));
     } else if (val == "log") {
-      return (Expanded(
-        child: (OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 30, top: 30),
-            child: Text("log\u2091",
-                style: TextStyle(color: Colors.black, fontSize: 20)),
-          ),
-        )),
-      ));
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Text("log",
+            style: TextStyle(color: Colors.black, fontSize: 20)),
+      )));
     } else if (val == "=") {
-      return (Expanded(
-        child: (OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-              padding: const EdgeInsets.only(bottom: 30, top: 30),
-              child: Icon(
-                FontAwesomeIcons.equals,
-                size: 20,
-                color: Colors.black,
-              )),
-        )),
-      ));
-    } else if (val == "pie") {
-      return (Expanded(
-        child: (OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-              padding: const EdgeInsets.only(bottom: 30, top: 30),
-              child: /*Icon(
-                FontAwesomeIcons.pie,
-                size: 20,
-                color: Colors.black,
-              )*/
-                  Text(val,
-                      style: TextStyle(fontSize: 20, color: Colors.black))),
-        )),
-      ));
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.equals,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "1") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.one,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "2") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.two,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "3") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.three,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "4") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.four,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "5") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.five,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "6") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.six,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "7") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.seven,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "8") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.eight,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "9") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.nine,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "0") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.zero,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "+") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.plus,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "-") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Icon(
+          FontAwesomeIcons.minus,
+          size: 20,
+          color: Colors.black,
+        ),
+      )));
+    }else if (val == "e") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Text("e",
+            style: TextStyle(fontSize: 20, color: Colors.black))
+      )));
+    }
+    else if (val == "pie") {
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Text("pie",
+            style: TextStyle(fontSize: 20, color: Colors.black)),
+      )));
     } else {
-      return (Expanded(
-        child: (OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 30, top: 30),
-            child:
-                Text(val, style: TextStyle(fontSize: 20, color: Colors.black)),
-          ),
-        )),
-      ));
+      return ((OutlinedButton(
+        onPressed: () => {tasktocarryout(val)},
+        child: Text(val, style: TextStyle(fontSize: 20, color: Colors.black)),
+      )));
     }
   }
 
