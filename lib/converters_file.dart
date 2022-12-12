@@ -48,7 +48,7 @@ class _Converters_FileState extends State<Converters_File> {
   String? k1 = "Centimeter";
   String? k2 = "Centimeter";
   String? text_input_field = "";
-  String? calculated_value="";
+  String? calculated_value = "";
   late TextEditingController _c;
 
   @override
@@ -86,11 +86,10 @@ class _Converters_FileState extends State<Converters_File> {
                     ),
                     child: DropdownButton<String>(
                       items: items
-                          .map((e) =>
-                          DropdownMenuItem(
-                            child: Text(e),
-                            value: e,
-                          ))
+                          .map((e) => DropdownMenuItem(
+                                child: Text(e),
+                                value: e,
+                              ))
                           .toList(),
                       isExpanded: true,
                       icon: Icon(FontAwesomeIcons.anglesDown,
@@ -115,23 +114,20 @@ class _Converters_FileState extends State<Converters_File> {
                 children: [
                   Expanded(
                       child: TextFormField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder()),
-                        onChanged: (value) {
-                          text_input_field = value;
-                          print(value);
-                        },
-                        controller: _c,
-                      )),
+                    decoration: InputDecoration(border: OutlineInputBorder()),
+                    onChanged: (value) {
+                      text_input_field = value;
+                      print(value);
+                    },
+                    controller: _c,
+                  )),
                   VerticalDivider(
                     width: 40,
                   ),
-                  Expanded(
-                      child: Text(text_input_field!))
+                  Expanded(child: Text(text_input_field!))
                 ],
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.only(
                   top: 20, bottom: 20, right: 40, left: 40),
@@ -145,19 +141,23 @@ class _Converters_FileState extends State<Converters_File> {
                 ],
               ),
             ),
-            ElevatedButton(onPressed: () {
-              setState(() {
-                var c = int.parse(_c.text);
-                calculation_func(c);
-              });
-            }, child: Text("Check"),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  var c = double.parse(_c.text);
+                  calculation_func(c);
+                });
+              },
+              child: Text("Check"),
             )
           ],
         ));
   }
-// Function to Do Calculations
 
-  void calculation_func(int c) {
+//////////////////// Function to Do Calculations//////////////////////////////////////
+/////////////////////// For length calculation//////////////////////////////////////
+
+  void calculation_func(double c) {
     if (_dropdownvalue == "Length") {
       if (length1 == "Centimeter") {
         if (length2 == "Centimeter") {
@@ -169,13 +169,13 @@ class _Converters_FileState extends State<Converters_File> {
         } else if (length2 == "Meter") {
           calculated_value = (c / 100).toString();
         } else if (length2 == "Mile") {
-          calculated_value = (c/160900).toString();
+          calculated_value = (c / 160900).toString();
         } else if (length2 == "Foot") {
-          calculated_value = (c/30.48).toString();
+          calculated_value = (c / 30.48).toString();
         } else if (length2 == "Inch") {
           calculated_value = (c * 2.54).toString();
         }
-      }else if(length1=="Kilometre"){
+      } else if (length1 == "Kilometre") {
         if (length2 == "Centimeter") {
           calculated_value = (c * 100000).toString();
         } else if (length2 == "Kilometre") {
@@ -185,56 +185,235 @@ class _Converters_FileState extends State<Converters_File> {
         } else if (length2 == "Meter") {
           calculated_value = (c * 1000).toString();
         } else if (length2 == "Mile") {
-          calculated_value = (c/1.609).toString();
+          calculated_value = (c / 1.609).toString();
         } else if (length2 == "Foot") {
-          calculated_value = (c*3281).toString();
+          calculated_value = (c * 3281).toString();
         } else if (length2 == "Inch") {
           calculated_value = (c * 39370).toString();
         }
-      }else if(length1=="Millimetre"){
+      } else if (length1 == "Millimetre") {
         if (length2 == "Centimeter") {
           calculated_value = (c / 10).toString();
         } else if (length2 == "Kilometre") {
-          calculated_value = (c/1000000).toString();
+          calculated_value = (c / 1000000).toString();
         } else if (length2 == "Millimetre") {
-          calculated_value = (c ).toString();
+          calculated_value = (c).toString();
         } else if (length2 == "Meter") {
           calculated_value = (c / 1000).toString();
         } else if (length2 == "Mile") {
-          calculated_value = (c/1609344).toString();
+          calculated_value = (c / 1609344).toString();
         } else if (length2 == "Foot") {
-          calculated_value = (c/304.8).toString();
+          calculated_value = (c / 304.8).toString();
         } else if (length2 == "Inch") {
-          calculated_value = (c / 25.4 ).toString();
+          calculated_value = (c / 25.4).toString();
         }
-      }else if(length1=="Meter"){
+      } else if (length1 == "Meter") {
         if (length2 == "Centimeter") {
-          calculated_value = (c *10).toString();
+          calculated_value = (c * 10).toString();
         } else if (length2 == "Kilometre") {
-          calculated_value = (c/1000).toString();
+          calculated_value = (c / 1000).toString();
         } else if (length2 == "Millimetre") {
-          calculated_value = (c *1000).toString();
+          calculated_value = (c * 1000).toString();
         } else if (length2 == "Meter") {
           calculated_value = (c).toString();
         } else if (length2 == "Mile") {
-          calculated_value = (c/1609).toString();
+          calculated_value = (c / 1609).toString();
         } else if (length2 == "Foot") {
-          calculated_value = (c*3.281).toString();
+          calculated_value = (c * 3.281).toString();
         } else if (length2 == "Inch") {
-          calculated_value = (c * 39.3701 ).toString();
+          calculated_value = (c * 39.3701).toString();
+        }
+      } else if (length1 == "Mile") {
+        if (length2 == "Centimeter") {
+          calculated_value = (c * 160900).toString();
+        } else if (length2 == "Kilometre") {
+          calculated_value = (c * 1.609).toString();
+        } else if (length2 == "Millimetre") {
+          calculated_value = (c * 1609000).toString();
+        } else if (length2 == "Meter") {
+          calculated_value = (c * 1609).toString();
+        } else if (length2 == "Mile") {
+          calculated_value = (c).toString();
+        } else if (length2 == "Foot") {
+          calculated_value = (c * 5280).toString();
+        } else if (length2 == "Inch") {
+          calculated_value = (c * 63360).toString();
+        }
+      } else if (length1 == "Foot") {
+        if (length2 == "Centimeter") {
+          calculated_value = (c * 30.48).toString();
+        } else if (length2 == "Kilometre") {
+          calculated_value = (c / 3281).toString();
+        } else if (length2 == "Millimetre") {
+          calculated_value = (c * 304.8).toString();
+        } else if (length2 == "Meter") {
+          calculated_value = (c / 3.281).toString();
+        } else if (length2 == "Mile") {
+          calculated_value = (c / 5280).toString();
+        } else if (length2 == "Foot") {
+          calculated_value = (c * 1).toString();
+        } else if (length2 == "Inch") {
+          calculated_value = (c * 12).toString();
+        }
+      } else if (length1 == "Inch") {
+        if (length2 == "Centimeter") {
+          calculated_value = (c * 2.54).toString();
+        } else if (length2 == "Kilometre") {
+          calculated_value = (c / 39370).toString();
+        } else if (length2 == "Millimetre") {
+          calculated_value = (c * 25.4).toString();
+        } else if (length2 == "Meter") {
+          calculated_value = (c / 39.37).toString();
+        } else if (length2 == "Mile") {
+          calculated_value = (c / 63360).toString();
+        } else if (length2 == "Foot") {
+          calculated_value = (c / 12).toString();
+        } else if (length2 == "Inch") {
+          calculated_value = (c * 1).toString();
         }
       }
 
-    } else if(_dropdownvalue=="Mass"){
+      //////////////////// For Mass calculation//////////////////////////////////////
+    } else if (_dropdownvalue == "Mass") {
+      if (mass1 == "Kilogram") {
+        if (mass2 == "Gram") {
+          calculated_value = (c * 1000).toString();
+        } else if (mass2 == "Imperial ton") {
+          calculated_value = (c / 1016).toString();
+        } else if (mass2 == "Pound") {
+          calculated_value = (c * 2.205).toString();
+        } else if (mass2 == "Ounce") {
+          calculated_value = (c * 35.274).toString();
+        } else if (mass2 == "Kilogram") {
+          calculated_value = (c * 1).toString();
+        }
+      } else if (mass1 == "Gram") {
+        if (mass2 == "Gram") {
+          calculated_value = (c * 1).toString();
+        } else if (mass2 == "Imperial ton") {
+          calculated_value = ((c * 9.842) / 10000000).toString();
+        } else if (mass2 == "Pound") {
+          calculated_value = (c / 453.6).toString();
+        } else if (mass2 == "Ounce") {
+          calculated_value = (c / 28.35).toString();
+        } else if (mass2 == "Kilogram") {
+          calculated_value = (c / 1000).toString();
+        }
+      } else if (mass1 == "Imperial ton") {
+        if (mass2 == "Gram") {
+          calculated_value = (c * 1016046.91).toString();
+        } else if (mass2 == "Imperial ton") {
+          calculated_value = (c).toString();
+        } else if (mass2 == "Pound") {
+          calculated_value = (c * 2240).toString();
+        } else if (mass2 == "Ounce") {
+          calculated_value = (c * 35840).toString();
+        } else if (mass2 == "Kilogram") {
+          calculated_value = (c * 1016).toString();
+        }
+      } else if (mass1 == "Pound") {
+        if (mass2 == "Gram") {
+          calculated_value = (c * 453.6).toString();
+        } else if (mass2 == "Imperial ton") {
+          calculated_value = (c / 2240).toString();
+        } else if (mass2 == "Pound") {
+          calculated_value = (c * 1).toString();
+        } else if (mass2 == "Ounce") {
+          calculated_value = (c * 16).toString();
+        } else if (mass2 == "Kilogram") {
+          calculated_value = (c / 2.205).toString();
+        }
+      } else if (mass1 == "Ounce") {
+        if (mass2 == "Gram") {
+          calculated_value = (c * 28.35).toString();
+        } else if (mass2 == "Imperial ton") {
+          calculated_value = (c / 35840).toString();
+        } else if (mass2 == "Pound") {
+          calculated_value = (c / 16).toString();
+        } else if (mass2 == "Ounce") {
+          calculated_value = (c * 1).toString();
+        } else if (mass2 == "Kilogram") {
+          calculated_value = (c / 35.274).toString();
+        }
+      }
 
-   }else if(_dropdownvalue=="Speed"){
+      /////////////////////////////// For Speed Calculations //////////////////////////////////////
 
-   }else if(_dropdownvalue=="Temperature"){
-
-   }
-   setState(() {
-     text_input_field=calculated_value;
-   });
+    } else if (_dropdownvalue == "Speed") {
+      if (speed1 == "Mile per hour") {
+        if (speed2 == "Meter per second") {
+          calculated_value = (c / 2.237).toString();
+        } else if (speed2 == "Kilometer per hour") {
+          calculated_value = (c * 1.609).toString();
+        } else if (speed2 == "Knot") {
+          calculated_value = (c / 1.151).toString();
+        } else if (speed2 == "Mile per hour") {
+          calculated_value = (c).toString();
+        }
+      } else if (speed1 == "Meter per second") {
+        if (speed2 == "Meter per second") {
+          calculated_value = (c).toString();
+        } else if (speed2 == "Kilometer per hour") {
+          calculated_value = (c * 3.6).toString();
+        } else if (speed2 == "Knot") {
+          calculated_value = (c * 1.944).toString();
+        } else if (speed2 == "Mile per hour") {
+          calculated_value = (c * 2.237).toString();
+        }
+      } else if (speed1 == "Kilometer per hour") {
+        if (speed2 == "Meter per second") {
+          calculated_value = (c / 3.6).toString();
+        } else if (speed2 == "Kilometer per hour") {
+          calculated_value = (c).toString();
+        } else if (speed2 == "Knot") {
+          calculated_value = (c / 1.852).toString();
+        } else if (speed2 == "Mile per hour") {
+          calculated_value = (c / 1.609).toString();
+        }
+      } else if (speed1 == "Knot") {
+        if (speed2 == "Meter per second") {
+          calculated_value = (c / 1.944).toString();
+        } else if (speed2 == "Kilometer per hour") {
+          calculated_value = (c * 1.852).toString();
+        } else if (speed2 == "Knot") {
+          calculated_value = (c).toString();
+        } else if (speed2 == "Mile per hour") {
+          calculated_value = (c * 1.151).toString();
+        }
+      }
+    }
+    /////////////////////////////// For Temperature Calculations //////////////////////////////////////
+    else if (_dropdownvalue == "Temperature") {
+      if (temp1 == "Degree Celsius") {
+        if (temp2 == "Degree Celsius") {
+          calculated_value = (c).toString();
+        } else if (temp2 == "Fahrenheit") {
+          calculated_value = ((c * 9 / 5) + 32).toString();
+        } else if (temp2 == "Kelvin") {
+          calculated_value = (c + 273.15).toString();
+        }
+      } else if (temp1 == "Fahrenheit") {
+        if (temp2 == "Degree Celsius") {
+          calculated_value = ((c - 32) * (5 / 9)).toString();
+        } else if (temp2 == "Fahrenheit") {
+          calculated_value = (c).toString();
+        } else if (temp2 == "Kelvin") {
+          calculated_value = (((c - 32) * (5 / 9)) + 273.15).toString();
+        }
+      } else if (temp1 == "Kelvin") {
+        if (temp2 == "Degree Celsius") {
+          calculated_value = (c - 273.15).toString();
+        } else if (temp2 == "Fahrenheit") {
+          calculated_value = (((c - 273.15) * (9 / 5)) + 32).toString();
+        } else if (temp2 == "Kelvin") {
+          calculated_value = (c).toString();
+        }
+      }
+    }
+    //////////////// Set state function to carry out updated task..../////////////////////////
+    setState(() {
+      text_input_field = calculated_value;
+    });
   }
 
   Widget func(String? dropdownvalue) {
@@ -243,11 +422,10 @@ class _Converters_FileState extends State<Converters_File> {
       k2 = "Centimeter";
       return (DropdownButton<String>(
         items: length
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -265,11 +443,10 @@ class _Converters_FileState extends State<Converters_File> {
       k2 = "Kilogram";
       return (DropdownButton<String>(
         items: mass
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -287,11 +464,10 @@ class _Converters_FileState extends State<Converters_File> {
       k2 = "Mile per hour";
       return (DropdownButton<String>(
         items: speed
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -309,11 +485,10 @@ class _Converters_FileState extends State<Converters_File> {
       k2 = "Degree Celsius";
       return (DropdownButton<String>(
         items: temperature
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -333,11 +508,10 @@ class _Converters_FileState extends State<Converters_File> {
     if (_dropdownvalue == "Length") {
       return (DropdownButton<String>(
         items: length
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -353,11 +527,10 @@ class _Converters_FileState extends State<Converters_File> {
     } else if (_dropdownvalue == "Mass") {
       return (DropdownButton<String>(
         items: mass
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -373,11 +546,10 @@ class _Converters_FileState extends State<Converters_File> {
     } else if (_dropdownvalue == "Speed") {
       return (DropdownButton<String>(
         items: speed
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
@@ -393,11 +565,10 @@ class _Converters_FileState extends State<Converters_File> {
     } else {
       return (DropdownButton<String>(
         items: temperature
-            .map((e) =>
-            DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            ))
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
             .toList(),
         isExpanded: true,
         icon: Icon(FontAwesomeIcons.anglesDown, color: Colors.black),
