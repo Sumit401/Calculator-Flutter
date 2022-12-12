@@ -98,7 +98,7 @@ class _Main_screenState extends State<Main_screen> {
 
   Widget custom_btn(String value) {
     if (value == "BS") {
-      return (Expanded(
+      return ((Expanded(
           child: (OutlinedButton(
         onPressed: () => tasktocarry(value),
         child: Padding(
@@ -107,9 +107,9 @@ class _Main_screenState extends State<Main_screen> {
               FontAwesomeIcons.deleteLeft,
               color: Colors.black,
             )),
-      ))));
+      )))));
     } else if (value == "CS") {
-      return (Expanded(
+      return ((Expanded(
           child: (OutlinedButton(
         onPressed: () => tasktocarry(value),
         child: Padding(
@@ -118,9 +118,9 @@ class _Main_screenState extends State<Main_screen> {
               FontAwesomeIcons.circleXmark,
               color: Colors.black,
             )),
-      ))));
+      )))));
     } else if (value == "=") {
-      return (Expanded(
+      return ((Expanded(
           child: (OutlinedButton(
         onPressed: () => tasktocarry(value),
         child: Padding(
@@ -129,19 +129,192 @@ class _Main_screenState extends State<Main_screen> {
               FontAwesomeIcons.equals,
               color: Colors.black,
             )),
-      ))));
-    } else {
-      return (Expanded(
+      )))));
+    }else if (value == "1") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.one,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "2") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.two,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "3") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.three,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "4") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.four,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "5") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.five,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "6") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.six,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "7") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.seven,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "8") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.eight,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "9") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.nine,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "0") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.zero,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "+") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.plus,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "*") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.xmark,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "-") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.minus,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "/") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.divide,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == "%") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(
+                  FontAwesomeIcons.percent,
+                  color: Colors.black,
+                )),
+          )))));
+    }else if (value == ".") {
+      return ((Expanded(
+          child: (OutlinedButton(
+            onPressed: () => tasktocarry(value),
+            child: Padding(
+                padding: const EdgeInsets.only(top: 32, bottom: 32),
+                child: Icon(Icons.circle_rounded,
+                  color: Colors.black,
+                )),
+          )))));
+    }
+    else {
+      return ((Expanded(
           child: (OutlinedButton(
         onPressed: () => tasktocarry(value),
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: Text(
-            value,
-            style: TextStyle(fontSize: 30, color: Colors.black87),
-          ),
+        child: Text(
+          value,
+          style: TextStyle(fontSize: 30, color: Colors.black87),
         ),
-      ))));
+      )))));
     }
   }
 

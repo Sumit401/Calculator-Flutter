@@ -60,7 +60,7 @@ class _Converters_FileState extends State<Converters_File> {
 
   @override
   void dispose() {
-    _c?.dispose();
+    _c.dispose();
     // TODO: implement dispose
     super.dispose();
   }
