@@ -252,16 +252,14 @@ class _ScientificState extends State<Scientific> {
           todisplayoutput != "%") {
         res = todisplayoutput.substring(0, todisplayoutput.length - 1);
       }
-    }
-    else if(val=="x!"){
+    } else if (val == "x!") {
       first_num = double.parse(todisplayoutput);
-      int temp=1;
-      for(int k=first_num.toInt();k>0;k--){
-        temp=temp*k;
+      int temp = 1;
+      for (int k = first_num.toInt(); k > 0; k--) {
+        temp = temp * k;
       }
-      res=temp.toString();
-    }
-    else if (val == "root") {
+      res = temp.toString();
+    } else if (val == "root") {
       first_num = double.parse(todisplayoutput);
       res = sqrt(first_num).toString();
     } else if (val == "pow") {
