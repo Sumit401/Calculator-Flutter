@@ -18,7 +18,9 @@ class _ScientificState extends State<Scientific> {
   @override
   Widget build(BuildContext context) {
     var max_height= (MediaQuery.of(context).size.height);
-    print(max_height);
+    print("Screen Height= $max_height");
+    var max_width= (MediaQuery.of(context).size.width);
+    print("Screen Width = $max_width");
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -39,8 +41,7 @@ class _ScientificState extends State<Scientific> {
                 children: [
                   Expanded(
                     child: Container(
-
-                      color: Colors.green,
+                      //color: Colors.green,
                       alignment: Alignment.bottomRight,
                       child: Text(
                         todisplayoutput,
@@ -58,10 +59,9 @@ class _ScientificState extends State<Scientific> {
                 children: [
                   Expanded(
                     child: Container(
-
                       margin: EdgeInsets.only(bottom: 10),
                       alignment: Alignment.bottomRight,
-                      color: Colors.redAccent,
+                      //color: Colors.redAccent,
                       child: Text(
                         todisplayoutput,
                         style: TextStyle(fontSize: 50, color: Colors.black),
@@ -76,7 +76,10 @@ class _ScientificState extends State<Scientific> {
                 children: [
                   Expanded(
                     child: Container(
-                      color: Colors.blue,
+
+                      padding: EdgeInsets.only(bottom: 10,left: 10,right: 10),
+                      //margin: EdgeInsets.only(bottom: 10),
+                      //color: Colors.blue,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -223,7 +226,7 @@ class _ScientificState extends State<Scientific> {
           ),
         ))),
       );
-    }else if (val == "1") {
+    }/*else if (val == "1") {
       return Expanded(
         child: ((OutlinedButton(
           onPressed: () => {tasktocarryout(val)},
@@ -414,7 +417,7 @@ class _ScientificState extends State<Scientific> {
           ),
         ))),
       );
-    } else {
+    }*/ else {
       return Expanded(
         child: ((OutlinedButton(
           onPressed: () => {tasktocarryout(val)},

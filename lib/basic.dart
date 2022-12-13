@@ -130,183 +130,183 @@ class _Main_screenState extends State<Main_screen> {
               color: Colors.black,
             )),
       )))));
-    }else if (value == "1") {
+    } else if (value == "1") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.one,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "2") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.one,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "2") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.two,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "3") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.two,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "3") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.three,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "4") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.three,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "4") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.four,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "5") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.four,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "5") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.five,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "6") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.five,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "6") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.six,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "7") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.six,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "7") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.seven,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "8") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.seven,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "8") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.eight,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "9") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.eight,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "9") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.nine,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "0") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.nine,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "0") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.zero,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "+") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.zero,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "+") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.plus,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "*") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.plus,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "*") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.xmark,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "-") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.xmark,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "-") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.minus,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "/") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.minus,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "/") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.divide,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == "%") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.divide,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == "%") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(
-                  FontAwesomeIcons.percent,
-                  color: Colors.black,
-                )),
-          )))));
-    }else if (value == ".") {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              FontAwesomeIcons.percent,
+              color: Colors.black,
+            )),
+      )))));
+    } else if (value == ".") {
       return ((Expanded(
           child: (OutlinedButton(
-            onPressed: () => tasktocarry(value),
-            child: Padding(
-                padding: const EdgeInsets.only(top: 32, bottom: 32),
-                child: Icon(Icons.circle_rounded,
-                  color: Colors.black,
-                )),
-          )))));
-    }
-    else {
+        onPressed: () => tasktocarry(value),
+        child: Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            child: Icon(
+              Icons.circle_rounded,
+              color: Colors.black,
+            )),
+      )))));
+    } else {
       return ((Expanded(
           child: (OutlinedButton(
         onPressed: () => tasktocarry(value),
@@ -344,7 +344,7 @@ class _Main_screenState extends State<Main_screen> {
       operat = "";
     } else if (val == "+" ||
         val == "-" ||
-        val == "X" ||
+        val == "*" ||
         val == "/" ||
         val == "%") {
       res = "";
@@ -352,7 +352,7 @@ class _Main_screenState extends State<Main_screen> {
 
       if (todisplayoutput == "+" ||
           todisplayoutput == "-" ||
-          todisplayoutput == "X" ||
+          todisplayoutput == "*" ||
           todisplayoutput == "/" ||
           todisplayoutput == "%") {
         res = val;
@@ -366,7 +366,7 @@ class _Main_screenState extends State<Main_screen> {
     } else if (val == "BS") {
       if (todisplayoutput != "+" ||
           todisplayoutput != "-" ||
-          todisplayoutput != "X" ||
+          todisplayoutput != "*" ||
           todisplayoutput != "/" ||
           todisplayoutput != "%") {
         res = todisplayoutput.substring(0, todisplayoutput.length - 1);
@@ -383,7 +383,7 @@ class _Main_screenState extends State<Main_screen> {
         res = (first_num + second_num).toString();
       } else if (operat == "-") {
         res = (first_num - second_num).toString();
-      } else if (operat == "X") {
+      } else if (operat == "*") {
         res = (first_num * second_num).toString();
       } else if (operat == "/") {
         res = (first_num / second_num).toString();
@@ -393,7 +393,7 @@ class _Main_screenState extends State<Main_screen> {
     } else {
       if (todisplayoutput == "+" ||
           todisplayoutput == "-" ||
-          todisplayoutput == "X" ||
+          todisplayoutput == "*" ||
           todisplayoutput == "/" ||
           todisplayoutput == "%") {
         res = "";

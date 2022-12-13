@@ -123,14 +123,15 @@ class _Converters_FileState extends State<Converters_File> {
                   Expanded(
                       child: SizedBox(
                           child: Container(
-                            decoration: BoxDecoration(
-                            border: Border.all(
-                            color: Colors.black54,
-                            width: 2,
-                            strokeAlign: StrokeAlign.outside,),
-                            borderRadius: BorderRadius.circular(8)),
-                            padding: EdgeInsets.all(15),
-                            child: Text(text_input_field!),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.black54,
+                          width: 2,
+                          strokeAlign: StrokeAlign.outside,
+                        ),
+                        borderRadius: BorderRadius.circular(8)),
+                    padding: EdgeInsets.all(15),
+                    child: Text(text_input_field!),
                   )))
                 ],
               ),
