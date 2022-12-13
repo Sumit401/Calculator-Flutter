@@ -42,9 +42,10 @@ class _ScientificState extends State<Scientific> {
                   Expanded(
                     child: Container(
                       //color: Colors.green,
+                      margin: EdgeInsets.only(bottom: 10,right: 10),
                       alignment: Alignment.bottomRight,
                       child: Text(
-                        todisplayoutput,
+                        operations_display,
                         style: TextStyle(
                             fontSize: 20,
                             color: Colors.black54,
@@ -59,7 +60,7 @@ class _ScientificState extends State<Scientific> {
                 children: [
                   Expanded(
                     child: Container(
-                      margin: EdgeInsets.only(bottom: 10),
+                      margin: EdgeInsets.only(bottom: 10,right: 10),
                       alignment: Alignment.bottomRight,
                       //color: Colors.redAccent,
                       child: Text(
@@ -226,198 +227,7 @@ class _ScientificState extends State<Scientific> {
           ),
         ))),
       );
-    }/*else if (val == "1") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Icon(
-              FontAwesomeIcons.one,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "2") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Icon(
-              FontAwesomeIcons.two,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "3") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Icon(
-              FontAwesomeIcons.three,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "4") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Icon(
-              FontAwesomeIcons.four,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "5") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18.0),
-            child: Icon(
-              FontAwesomeIcons.five,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "6") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Icon(
-              FontAwesomeIcons.six,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "7") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Icon(
-              FontAwesomeIcons.seven,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "8") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Icon(
-              FontAwesomeIcons.eight,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "9") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Icon(
-              FontAwesomeIcons.nine,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "0") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Icon(
-              FontAwesomeIcons.zero,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "+") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Icon(
-              FontAwesomeIcons.plus,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "-") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Icon(
-              FontAwesomeIcons.minus,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ))),
-      );
-    }else if (val == "e") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Text("e",
-                style: TextStyle(fontSize: 20, color: Colors.black)),
-          )
-        ))),
-      );
-    }
-    else if (val == "pie") {
-      return Expanded(
-        child: ((OutlinedButton(
-          onPressed: () => {tasktocarryout(val)},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Text("pie",
-                style: TextStyle(fontSize: 20, color: Colors.black)),
-          ),
-        ))),
-      );
-    }*/ else {
+    } else {
       return Expanded(
         child: ((OutlinedButton(
           onPressed: () => {tasktocarryout(val)},
@@ -462,10 +272,11 @@ class _ScientificState extends State<Scientific> {
       first_num = double.parse(todisplayoutput);
       operators = val;
       res = "";
+      res2=res2+val;
     } else if (val == "BS") {
       if (todisplayoutput != "+" ||
           todisplayoutput != "-" ||
-          todisplayoutput != "X" ||
+          todisplayoutput != "*" ||
           todisplayoutput != "/" ||
           todisplayoutput != "%") {
         res = todisplayoutput.substring(0, todisplayoutput.length - 1);
@@ -476,49 +287,57 @@ class _ScientificState extends State<Scientific> {
       for (int k = first_num.toInt(); k > 0; k--) {
         temp = temp * k;
       }
-      res = temp.toString();
+      res = temp.toStringAsFixed(3);
+      res2=res2+"!";
     } else if (val == "root") {
       first_num = double.parse(todisplayoutput);
-      res = sqrt(first_num).toString();
+      res = sqrt(first_num).toStringAsFixed(3);
+      res2="sqrt("+res2+")";
     } else if (val == "pow") {
       first_num = double.parse(todisplayoutput);
       operators = val;
       res = "";
+      res2=res2+"^";
     } else if (val == "sin") {
       first_num = double.parse(todisplayoutput);
-      res = sin(first_num).toString();
+      res = sin(first_num).toStringAsFixed(3);
+      res2="sin("+res2+")";
     } else if (val == "cos") {
       first_num = double.parse(todisplayoutput);
-      res = cos(first_num).toString();
+      res = cos(first_num).toStringAsFixed(3);
+      res2="cos("+res2+")";
     } else if (val == "tan") {
       first_num = double.parse(todisplayoutput);
-      res = tan(first_num).toString();
-    } else if (val == "tan") {
-      first_num = double.parse(todisplayoutput);
-      res = tan(first_num).toString();
+      res = tan(first_num).toStringAsFixed(3);
+      res2="tan("+res2+")";
     } else if (val == "log") {
       first_num = double.parse(todisplayoutput);
-      res = log(first_num).toString();
+      res = log(first_num).toStringAsFixed(3);
+      res2="log("+res2+")";
     } else if (val == "1/x") {
       first_num = double.parse(todisplayoutput);
       if (first_num > 0) {
-        res = (1 / first_num).toString();
+        res = (1 / first_num).toStringAsFixed(3);
+        res2="1/"+res2+"";
       }
     } else if (val == "e") {
-      res = e.toString();
+      res = e.toStringAsFixed(3);
+      res2=res2+val;
     } else if (val == "pie") {
-      res = pi.toString();
+      res = pi.toStringAsFixed(3);
+      res2=res2+val;
     } else if (val == "exp") {
       first_num = double.parse(todisplayoutput);
-      res = exp(first_num).toString();
+      res = exp(first_num).toStringAsFixed(5);
+      res2=res2+val;
     } else if (val == "=") {
       second_num = double.parse(todisplayoutput);
-      res2 = operations_display + todisplayoutput;
+      //res = todisplayoutput;
       if (operators == "+") {
         res = (first_num + second_num).toString();
       } else if (operators == "-") {
         res = (first_num - second_num).toString();
-      } else if (operators == "X") {
+      } else if (operators == "*") {
         res = (first_num * second_num).toString();
       } else if (operators == "/") {
         res = (first_num / second_num).toString();
@@ -541,13 +360,19 @@ class _ScientificState extends State<Scientific> {
         val == "-") {
       if (todisplayoutput == "0") {
         res = val;
+        res2= val;
       } else {
         res = todisplayoutput + val;
+        res2=res2+val;
       }
     }
     // calling set state function
     setState(() {
-      todisplayoutput = res; // for output
+      //todisplayoutput = res; // for output
+      /*double d=double.parse(res);
+      String s=d.toStringAsFixed(1);*/
+      todisplayoutput=res;
+      operations_display=res2; // For secondary output
     });
   }
 }
