@@ -9,7 +9,7 @@ import 'package:flutter/services.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  /*if (Platform.isWindows || Platform.isLinux || Platform.isFuchsia) {
+  if (Platform.isWindows || Platform.isLinux || Platform.isFuchsia) {
     setWindowTitle('Calculator');
     setWindowMaxSize(const Size(600, 720));
     setWindowMinSize(const Size(600, 720));
@@ -18,7 +18,7 @@ void main() {
       setWindowTitle('Calculator');
       setWindowMaxSize(const Size(1280, 720));
       setWindowMinSize(const Size(1280, 720));
-    }*/
+    }
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]).then((value) => runApp(MyApp()));

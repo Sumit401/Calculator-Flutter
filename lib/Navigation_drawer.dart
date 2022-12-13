@@ -49,7 +49,7 @@ class Navigation_drawer extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
             onTap: () => {
-              Navigator.pop(context),
+              Navigator.of(context).pop(),
               Navigator.of(context).pushNamed(Main_screen.route)
             },
           ),
@@ -62,7 +62,7 @@ class Navigation_drawer extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
             onTap: () => {
-              Navigator.pop(context),
+              Navigator.of(context).pop(),
               Navigator.of(context).pushNamed(Scientific.route)
             },
           ),
@@ -75,7 +75,7 @@ class Navigation_drawer extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
             onTap: () => {
-              Navigator.pop(context),
+              Navigator.of(context).pop(),
               Navigator.of(context).pushNamed(Converters_File.route),
             },
           ),
@@ -88,8 +88,8 @@ class Navigation_drawer extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
             onTap: () => {
-              Navigator.pop(context),
-              Navigator.of(context).pushNamed(Converters_File.route),
+              Navigator.of(context).pop(),
+              Navigator.of(context).pushNamed(""),
             },
           )
         ],
