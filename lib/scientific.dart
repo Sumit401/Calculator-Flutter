@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:project/Navigation_drawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:project/Responsive.dart';
 
 class Scientific extends StatefulWidget {
   static const route = "/scientific";
@@ -14,18 +15,20 @@ class Scientific extends StatefulWidget {
 }
 
 class _ScientificState extends State<Scientific> {
-
   @override
   Widget build(BuildContext context) {
-    var max_height= (MediaQuery.of(context).size.height);
+    var max_height = (MediaQuery.of(context).size.height);
     print("Screen Height= $max_height");
-    var max_width= (MediaQuery.of(context).size.width);
+    var max_width = (MediaQuery.of(context).size.width);
     print("Screen Width = $max_width");
+    var screen_size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: AppBar(
-        title: Text("Scientific Calculator"), // Title of the activity
-      ),
+
+      appBar: ResponsiveWidget.isSmallScreen(context)
+          ? AppBar(title: Text("Scientific Calculator"))
+          : PreferredSize(
+              child: Container(), preferredSize: Size(screen_size.width, 70)),
       drawer: Navigation_drawer(), //For navigation Drawer
 
       //Below Layout Design for the activity
@@ -42,7 +45,7 @@ class _ScientificState extends State<Scientific> {
                   Expanded(
                     child: Container(
                       //color: Colors.green,
-                      margin: EdgeInsets.only(bottom: 10,right: 10),
+                      margin: EdgeInsets.only(bottom: 10, right: 10),
                       alignment: Alignment.bottomRight,
                       child: Text(
                         operations_display,
@@ -60,7 +63,7 @@ class _ScientificState extends State<Scientific> {
                 children: [
                   Expanded(
                     child: Container(
-                      margin: EdgeInsets.only(bottom: 10,right: 10),
+                      margin: EdgeInsets.only(bottom: 10, right: 10),
                       alignment: Alignment.bottomRight,
                       //color: Colors.redAccent,
                       child: Text(
@@ -77,55 +80,66 @@ class _ScientificState extends State<Scientific> {
                 children: [
                   Expanded(
                     child: Container(
-
-                      padding: EdgeInsets.only(bottom: 10,left: 10,right: 10),
+                      padding: EdgeInsets.only(bottom: 10, left: 10, right: 10),
                       //margin: EdgeInsets.only(bottom: 10),
                       //color: Colors.blue,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                            custom_sc_btn("root"),
-                            custom_sc_btn("pow"),
-                            custom_sc_btn("CS"),
-                            custom_sc_btn("BS"),
-                            custom_sc_btn("=")
-                          ]),
-                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                            custom_sc_btn("sin"),
-                            custom_sc_btn("cos"),
-                            custom_sc_btn("tan"),
-                            custom_sc_btn("pie"),
-                            custom_sc_btn("exp")
-                          ]),
-                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                            custom_sc_btn("log"),
-                            custom_sc_btn("9"),
-                            custom_sc_btn("8"),
-                            custom_sc_btn("7"),
-                            custom_sc_btn("+")
-                          ]),
-                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                            custom_sc_btn("1/x"),
-                            custom_sc_btn("6"),
-                            custom_sc_btn("5"),
-                            custom_sc_btn("4"),
-                            custom_sc_btn("-")
-                          ]),
-                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                            custom_sc_btn("x!"),
-                            custom_sc_btn("3"),
-                            custom_sc_btn("2"),
-                            custom_sc_btn("1"),
-                            custom_sc_btn("*")
-                          ]),
-                          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                            custom_sc_btn("e"),
-                            custom_sc_btn("."),
-                            custom_sc_btn("0"),
-                            custom_sc_btn("%"),
-                            custom_sc_btn("/")
-                          ])
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                custom_sc_btn("root"),
+                                custom_sc_btn("pow"),
+                                custom_sc_btn("CS"),
+                                custom_sc_btn("BS"),
+                                custom_sc_btn("=")
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                custom_sc_btn("sin"),
+                                custom_sc_btn("cos"),
+                                custom_sc_btn("tan"),
+                                custom_sc_btn("pie"),
+                                custom_sc_btn("exp")
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                custom_sc_btn("log"),
+                                custom_sc_btn("9"),
+                                custom_sc_btn("8"),
+                                custom_sc_btn("7"),
+                                custom_sc_btn("+")
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                custom_sc_btn("1/x"),
+                                custom_sc_btn("6"),
+                                custom_sc_btn("5"),
+                                custom_sc_btn("4"),
+                                custom_sc_btn("-")
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                custom_sc_btn("x!"),
+                                custom_sc_btn("3"),
+                                custom_sc_btn("2"),
+                                custom_sc_btn("1"),
+                                custom_sc_btn("*")
+                              ]),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                custom_sc_btn("e"),
+                                custom_sc_btn("."),
+                                custom_sc_btn("0"),
+                                custom_sc_btn("%"),
+                                custom_sc_btn("/")
+                              ])
                         ],
                       ),
                     ),
@@ -145,7 +159,7 @@ class _ScientificState extends State<Scientific> {
   //////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////
 
-  Widget custom_sc_btn(String val) { 
+  Widget custom_sc_btn(String val) {
     if (val == "root") {
       return Expanded(
         child: ((OutlinedButton(
@@ -199,7 +213,7 @@ class _ScientificState extends State<Scientific> {
               size: 20,
               color: Colors.black,
             ),
-            ),
+          ),
         ))),
       );
     } else if (val == "log") {
@@ -218,7 +232,9 @@ class _ScientificState extends State<Scientific> {
         child: ((OutlinedButton(
           onPressed: () => {tasktocarryout(val)},
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18,),
+            padding: const EdgeInsets.symmetric(
+              vertical: 18,
+            ),
             child: Icon(
               FontAwesomeIcons.equals,
               size: 20,
@@ -233,7 +249,8 @@ class _ScientificState extends State<Scientific> {
           onPressed: () => {tasktocarryout(val)},
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 18),
-            child: Text(val, style: TextStyle(fontSize: 20, color: Colors.black)),
+            child:
+                Text(val, style: TextStyle(fontSize: 20, color: Colors.black)),
           ),
         ))),
       );
@@ -272,7 +289,7 @@ class _ScientificState extends State<Scientific> {
       first_num = double.parse(todisplayoutput);
       operators = val;
       res = "";
-      res2=res2+val;
+      res2 = res2 + val;
     } else if (val == "BS") {
       if (todisplayoutput != "+" ||
           todisplayoutput != "-" ||
@@ -288,48 +305,48 @@ class _ScientificState extends State<Scientific> {
         temp = temp * k;
       }
       res = temp.toStringAsFixed(3);
-      res2=res2+"!";
+      res2 = res2 + "!";
     } else if (val == "root") {
       first_num = double.parse(todisplayoutput);
       res = sqrt(first_num).toStringAsFixed(3);
-      res2="sqrt("+res2+")";
+      res2 = "sqrt(" + res2 + ")";
     } else if (val == "pow") {
       first_num = double.parse(todisplayoutput);
       operators = val;
       res = "";
-      res2=res2+"^";
+      res2 = res2 + "^";
     } else if (val == "sin") {
       first_num = double.parse(todisplayoutput);
       res = sin(first_num).toStringAsFixed(3);
-      res2="sin("+res2+")";
+      res2 = "sin(" + res2 + ")";
     } else if (val == "cos") {
       first_num = double.parse(todisplayoutput);
       res = cos(first_num).toStringAsFixed(3);
-      res2="cos("+res2+")";
+      res2 = "cos(" + res2 + ")";
     } else if (val == "tan") {
       first_num = double.parse(todisplayoutput);
       res = tan(first_num).toStringAsFixed(3);
-      res2="tan("+res2+")";
+      res2 = "tan(" + res2 + ")";
     } else if (val == "log") {
       first_num = double.parse(todisplayoutput);
       res = log(first_num).toStringAsFixed(3);
-      res2="log("+res2+")";
+      res2 = "log(" + res2 + ")";
     } else if (val == "1/x") {
       first_num = double.parse(todisplayoutput);
       if (first_num > 0) {
         res = (1 / first_num).toStringAsFixed(3);
-        res2="1/"+res2+"";
+        res2 = "1/" + res2 + "";
       }
     } else if (val == "e") {
       res = e.toStringAsFixed(3);
-      res2=res2+val;
+      res2 = res2 + val;
     } else if (val == "pie") {
       res = pi.toStringAsFixed(3);
-      res2=res2+val;
+      res2 = res2 + val;
     } else if (val == "exp") {
       first_num = double.parse(todisplayoutput);
       res = exp(first_num).toStringAsFixed(5);
-      res2=res2+val;
+      res2 = res2 + val;
     } else if (val == "=") {
       second_num = double.parse(todisplayoutput);
       //res = todisplayoutput;
@@ -360,10 +377,10 @@ class _ScientificState extends State<Scientific> {
         val == "-") {
       if (todisplayoutput == "0") {
         res = val;
-        res2= val;
+        res2 = val;
       } else {
         res = todisplayoutput + val;
-        res2=res2+val;
+        res2 = res2 + val;
       }
     }
     // calling set state function
@@ -371,8 +388,8 @@ class _ScientificState extends State<Scientific> {
       //todisplayoutput = res; // for output
       /*double d=double.parse(res);
       String s=d.toStringAsFixed(1);*/
-      todisplayoutput=res;
-      operations_display=res2; // For secondary output
+      todisplayoutput = res;
+      operations_display = res2; // For secondary output
     });
   }
 }

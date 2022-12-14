@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/Navigation_drawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:project/Responsive.dart';
 
 class Converters_File extends StatefulWidget {
   static const route = "/converters_file";
@@ -12,6 +13,7 @@ class Converters_File extends StatefulWidget {
 }
 
 class _Converters_FileState extends State<Converters_File> {
+
   var items = ["Length", "Mass", "Speed", "Temperature"];
   var length = [
     "Centimeter",
@@ -51,6 +53,7 @@ class _Converters_FileState extends State<Converters_File> {
   String? calculated_value = "";
   late TextEditingController _c;
 
+
   @override
   void initState() {
     _c = TextEditingController(text: "");
@@ -65,10 +68,15 @@ class _Converters_FileState extends State<Converters_File> {
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
+    var screen_size=MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(title: Text("Conveter")),
+        appBar: ResponsiveWidget.isSmallScreen(context)
+            ? AppBar(title: Text("Converter"))
+            : PreferredSize(
+                child: Container(), preferredSize: Size(screen_size.width, 70)),
         drawer: Navigation_drawer(),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,

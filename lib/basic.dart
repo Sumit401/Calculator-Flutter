@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:project/Navigation_drawer.dart';
-
+import 'Responsive.dart';
 class Main_screen extends StatefulWidget {
   static const route = "/basic";
 
@@ -14,8 +14,12 @@ class Main_screen extends StatefulWidget {
 class _Main_screenState extends State<Main_screen> {
   @override
   Widget build(BuildContext context) {
+    var screen_size=MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(title: Text("Bacic Calculator")),
+        appBar: ResponsiveWidget.isSmallScreen(context)
+            ? AppBar(title: Text("Basic Calculator"))
+            : PreferredSize(
+                child: Container(), preferredSize: Size(screen_size.width, 70)),
         drawer: Navigation_drawer(),
         body: Container(
             alignment: Alignment.bottomCenter,
