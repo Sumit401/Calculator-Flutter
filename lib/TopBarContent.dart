@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project/basic.dart';
+import 'package:project/converters_file.dart';
+import 'package:project/scientific.dart';
 
 class TopBarContent extends StatefulWidget {
   const TopBarContent({Key? key}) : super(key: key);
@@ -6,10 +9,10 @@ class TopBarContent extends StatefulWidget {
   @override
   State<TopBarContent> createState() => _TopBarContentState();
 }
-
 class _TopBarContentState extends State<TopBarContent> {
   @override
   Widget build(BuildContext context) {
+
     return Container(
       color: Colors.brown,
       child: Padding(
@@ -25,26 +28,49 @@ class _TopBarContentState extends State<TopBarContent> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("Basic Calculator",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w300, fontSize: 15,color: Colors.white))),
-                Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("Scientific Calculator",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w300, fontSize: 15,color: Colors.white))),
-                Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("Converter",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w300, fontSize: 15,color: Colors.white))),
-                Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("Contact Us",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w300, fontSize: 15,color: Colors.white))),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed(Main_screen.route);
+                  },
+                  child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      child: Text("Basic Calculator",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w300, fontSize: 15,color: Colors.white))),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed(Scientific.route);
+                  },
+                  child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      child: Text("Scientific Calculator",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w300, fontSize: 15,color: Colors.white))),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed(Converters_File.route);
+                  },
+                  child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      child: Text("Converter",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w300, fontSize: 15,color: Colors.white))),
+                ),
+                InkWell(
+                  onTap: () {
+
+                  },
+                  child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      child: Text("Contact Us",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w300, fontSize: 15,color: Colors.white))),
+                ),
               ],
             ),
           ],
