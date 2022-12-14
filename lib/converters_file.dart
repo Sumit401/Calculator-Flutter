@@ -79,99 +79,104 @@ class _Converters_FileState extends State<Converters_File> {
             : PreferredSize(
                 child: TopBarContent(), preferredSize: Size(screen_size.width, 70)),
         drawer: Navigation_drawer(),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
+        body:Container(
+          height: screen_size.height,
+          child: SingleChildScrollView(
+            child: Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.all(16),
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                      decoration: BoxDecoration(
-                        shape: BoxShape
-                            .rectangle, /*border: Border.all(color: Colors.black)*/
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.all(16),
+                          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                          decoration: BoxDecoration(
+                            shape: BoxShape
+                                .rectangle, /*border: Border.all(color: Colors.black)*/
+                          ),
+                          child: DropdownButton<String>(
+                            items: items
+                                .map((e) => DropdownMenuItem(
+                                      child: Text(e),
+                                      value: e,
+                                    ))
+                                .toList(),
+                            isExpanded: true,
+                            icon: Icon(FontAwesomeIcons.anglesDown,
+                                color: Colors.black),
+                            iconSize: 25,
+                            value: _dropdownvalue,
+                            onChanged: (val) {
+                              setState(() {
+                                _dropdownvalue = val;
+                              });
+                            },
+                          ),
+                        ),
                       ),
-                      child: DropdownButton<String>(
-                        items: items
-                            .map((e) => DropdownMenuItem(
-                                  child: Text(e),
-                                  value: e,
-                                ))
-                            .toList(),
-                        isExpanded: true,
-                        icon: Icon(FontAwesomeIcons.anglesDown,
-                            color: Colors.black),
-                        iconSize: 25,
-                        value: _dropdownvalue,
-                        onChanged: (val) {
-                          setState(() {
-                            _dropdownvalue = val;
-                          });
-                        },
-                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 20, bottom: 20, right: 40, left: 40),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                            child: TextFormField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(), labelText: "Enter Value"),
+                          controller: _c,
+                        )),
+                        VerticalDivider(
+                          width: 40,
+                        ),
+                        Expanded(
+                            child: SizedBox(
+                                child: Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.black54,
+                                width: 2,
+                                strokeAlign: StrokeAlign.outside,
+                              ),
+                              borderRadius: BorderRadius.circular(8)),
+                          padding: EdgeInsets.all(15),
+                          child: Text(text_input_field!),
+                        )))
+                      ],
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 20, bottom: 20, right: 40, left: 40),
+                    child: Row(
+                      children: [
+                        Expanded(child: func(_dropdownvalue)),
+                        VerticalDivider(
+                          width: 40,
+                        ),
+                        Expanded(child: func2(_dropdownvalue)),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(bottom: 30,top: 20),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          var c = double.parse(_c.text);
+                          calculation_func(c);
+                        });
+                      },
+                      child: Text("Check"),
+                    ),
+                  )
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 20, bottom: 20, right: 40, left: 40),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                        child: TextFormField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(), labelText: "Enter Value"),
-                      controller: _c,
-                    )),
-                    VerticalDivider(
-                      width: 40,
-                    ),
-                    Expanded(
-                        child: SizedBox(
-                            child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black54,
-                            width: 2,
-                            strokeAlign: StrokeAlign.outside,
-                          ),
-                          borderRadius: BorderRadius.circular(8)),
-                      padding: EdgeInsets.all(15),
-                      child: Text(text_input_field!),
-                    )))
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 20, bottom: 20, right: 40, left: 40),
-                child: Row(
-                  children: [
-                    Expanded(child: func(_dropdownvalue)),
-                    VerticalDivider(
-                      width: 40,
-                    ),
-                    Expanded(child: func2(_dropdownvalue)),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 30,top: 20),
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      var c = double.parse(_c.text);
-                      calculation_func(c);
-                    });
-                  },
-                  child: Text("Check"),
-                ),
-              )
-            ],
+            ),
           ),
         ));
   }
@@ -183,115 +188,115 @@ class _Converters_FileState extends State<Converters_File> {
     if (_dropdownvalue == "Length") {
       if (length1 == "Centimeter") {
         if (length2 == "Centimeter") {
-          calculated_value = c.toString();
+          calculated_value = c.toStringAsFixed(3);
         } else if (length2 == "Kilometre") {
-          calculated_value = (c / 100000).toString();
+          calculated_value = (c / 100000).toStringAsFixed(3);
         } else if (length2 == "Millimetre") {
-          calculated_value = (c * 10).toString();
+          calculated_value = (c * 10).toStringAsFixed(3);
         } else if (length2 == "Meter") {
-          calculated_value = (c / 100).toString();
+          calculated_value = (c / 100).toStringAsFixed(3);
         } else if (length2 == "Mile") {
-          calculated_value = (c / 160900).toString();
+          calculated_value = (c / 160900).toStringAsFixed(3);
         } else if (length2 == "Foot") {
-          calculated_value = (c / 30.48).toString();
+          calculated_value = (c / 30.48).toStringAsFixed(3);
         } else if (length2 == "Inch") {
-          calculated_value = (c * 2.54).toString();
+          calculated_value = (c * 2.54).toStringAsFixed(3);
         }
       } else if (length1 == "Kilometre") {
         if (length2 == "Centimeter") {
-          calculated_value = (c * 100000).toString();
+          calculated_value = (c * 100000).toStringAsFixed(3);
         } else if (length2 == "Kilometre") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         } else if (length2 == "Millimetre") {
-          calculated_value = (c * 1000000).toString();
+          calculated_value = (c * 1000000).toStringAsFixed(3);
         } else if (length2 == "Meter") {
-          calculated_value = (c * 1000).toString();
+          calculated_value = (c * 1000).toStringAsFixed(3);
         } else if (length2 == "Mile") {
-          calculated_value = (c / 1.609).toString();
+          calculated_value = (c / 1.609).toStringAsFixed(3);
         } else if (length2 == "Foot") {
-          calculated_value = (c * 3281).toString();
+          calculated_value = (c * 3281).toStringAsFixed(3);
         } else if (length2 == "Inch") {
-          calculated_value = (c * 39370).toString();
+          calculated_value = (c * 39370).toStringAsFixed(3);
         }
       } else if (length1 == "Millimetre") {
         if (length2 == "Centimeter") {
-          calculated_value = (c / 10).toString();
+          calculated_value = (c / 10).toStringAsFixed(3);
         } else if (length2 == "Kilometre") {
-          calculated_value = (c / 1000000).toString();
+          calculated_value = (c / 1000000).toStringAsFixed(3);
         } else if (length2 == "Millimetre") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         } else if (length2 == "Meter") {
-          calculated_value = (c / 1000).toString();
+          calculated_value = (c / 1000).toStringAsFixed(3);
         } else if (length2 == "Mile") {
-          calculated_value = (c / 1609344).toString();
+          calculated_value = (c / 1609344).toStringAsFixed(3);
         } else if (length2 == "Foot") {
-          calculated_value = (c / 304.8).toString();
+          calculated_value = (c / 304.8).toStringAsFixed(3);
         } else if (length2 == "Inch") {
-          calculated_value = (c / 25.4).toString();
+          calculated_value = (c / 25.4).toStringAsFixed(3);
         }
       } else if (length1 == "Meter") {
         if (length2 == "Centimeter") {
-          calculated_value = (c * 10).toString();
+          calculated_value = (c * 100).toStringAsFixed(3);
         } else if (length2 == "Kilometre") {
-          calculated_value = (c / 1000).toString();
+          calculated_value = (c / 1000).toStringAsFixed(3);
         } else if (length2 == "Millimetre") {
-          calculated_value = (c * 1000).toString();
+          calculated_value = (c * 1000).toStringAsFixed(3);
         } else if (length2 == "Meter") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         } else if (length2 == "Mile") {
-          calculated_value = (c / 1609).toString();
+          calculated_value = (c / 1609).toStringAsFixed(3);
         } else if (length2 == "Foot") {
-          calculated_value = (c * 3.281).toString();
+          calculated_value = (c * 3.281).toStringAsFixed(3);
         } else if (length2 == "Inch") {
-          calculated_value = (c * 39.3701).toString();
+          calculated_value = (c * 39.3701).toStringAsFixed(3);
         }
       } else if (length1 == "Mile") {
         if (length2 == "Centimeter") {
-          calculated_value = (c * 160900).toString();
+          calculated_value = (c * 160900).toStringAsFixed(3);
         } else if (length2 == "Kilometre") {
-          calculated_value = (c * 1.609).toString();
+          calculated_value = (c * 1.609).toStringAsFixed(3);
         } else if (length2 == "Millimetre") {
-          calculated_value = (c * 1609000).toString();
+          calculated_value = (c * 1609000).toStringAsFixed(3);
         } else if (length2 == "Meter") {
-          calculated_value = (c * 1609).toString();
+          calculated_value = (c * 1609).toStringAsFixed(3);
         } else if (length2 == "Mile") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         } else if (length2 == "Foot") {
-          calculated_value = (c * 5280).toString();
+          calculated_value = (c * 5280).toStringAsFixed(3);
         } else if (length2 == "Inch") {
-          calculated_value = (c * 63360).toString();
+          calculated_value = (c * 63360).toStringAsFixed(3);
         }
       } else if (length1 == "Foot") {
         if (length2 == "Centimeter") {
-          calculated_value = (c * 30.48).toString();
+          calculated_value = (c * 30.48).toStringAsFixed(3);
         } else if (length2 == "Kilometre") {
-          calculated_value = (c / 3281).toString();
+          calculated_value = (c / 3281).toStringAsFixed(3);
         } else if (length2 == "Millimetre") {
-          calculated_value = (c * 304.8).toString();
+          calculated_value = (c * 304.8).toStringAsFixed(3);
         } else if (length2 == "Meter") {
-          calculated_value = (c / 3.281).toString();
+          calculated_value = (c / 3.281).toStringAsFixed(3);
         } else if (length2 == "Mile") {
-          calculated_value = (c / 5280).toString();
+          calculated_value = (c / 5280).toStringAsFixed(3);
         } else if (length2 == "Foot") {
-          calculated_value = (c * 1).toString();
+          calculated_value = (c * 1).toStringAsFixed(3);
         } else if (length2 == "Inch") {
-          calculated_value = (c * 12).toString();
+          calculated_value = (c * 12).toStringAsFixed(3);
         }
       } else if (length1 == "Inch") {
         if (length2 == "Centimeter") {
-          calculated_value = (c * 2.54).toString();
+          calculated_value = (c * 2.54).toStringAsFixed(3);
         } else if (length2 == "Kilometre") {
-          calculated_value = (c / 39370).toString();
+          calculated_value = (c / 39370).toStringAsFixed(3);
         } else if (length2 == "Millimetre") {
-          calculated_value = (c * 25.4).toString();
+          calculated_value = (c * 25.4).toStringAsFixed(3);
         } else if (length2 == "Meter") {
-          calculated_value = (c / 39.37).toString();
+          calculated_value = (c / 39.37).toStringAsFixed(3);
         } else if (length2 == "Mile") {
-          calculated_value = (c / 63360).toString();
+          calculated_value = (c / 63360).toStringAsFixed(3);
         } else if (length2 == "Foot") {
-          calculated_value = (c / 12).toString();
+          calculated_value = (c / 12).toStringAsFixed(3);
         } else if (length2 == "Inch") {
-          calculated_value = (c * 1).toString();
+          calculated_value = (c * 1).toStringAsFixed(3);
         }
       }
 
@@ -299,63 +304,63 @@ class _Converters_FileState extends State<Converters_File> {
     } else if (_dropdownvalue == "Mass") {
       if (mass1 == "Kilogram") {
         if (mass2 == "Gram") {
-          calculated_value = (c * 1000).toString();
+          calculated_value = (c * 1000).toStringAsFixed(3);
         } else if (mass2 == "Imperial ton") {
-          calculated_value = (c / 1016).toString();
+          calculated_value = (c / 1016).toStringAsFixed(3);
         } else if (mass2 == "Pound") {
-          calculated_value = (c * 2.205).toString();
+          calculated_value = (c * 2.205).toStringAsFixed(3);
         } else if (mass2 == "Ounce") {
-          calculated_value = (c * 35.274).toString();
+          calculated_value = (c * 35.274).toStringAsFixed(3);
         } else if (mass2 == "Kilogram") {
-          calculated_value = (c * 1).toString();
+          calculated_value = (c * 1).toStringAsFixed(3);
         }
       } else if (mass1 == "Gram") {
         if (mass2 == "Gram") {
-          calculated_value = (c * 1).toString();
+          calculated_value = (c * 1).toStringAsFixed(3);
         } else if (mass2 == "Imperial ton") {
-          calculated_value = ((c * 9.842) / 10000000).toString();
+          calculated_value = ((c * 9.842) / 10000000).toStringAsFixed(3);
         } else if (mass2 == "Pound") {
-          calculated_value = (c / 453.6).toString();
+          calculated_value = (c / 453.6).toStringAsFixed(3);
         } else if (mass2 == "Ounce") {
-          calculated_value = (c / 28.35).toString();
+          calculated_value = (c / 28.35).toStringAsFixed(3);
         } else if (mass2 == "Kilogram") {
-          calculated_value = (c / 1000).toString();
+          calculated_value = (c / 1000).toStringAsFixed(3);
         }
       } else if (mass1 == "Imperial ton") {
         if (mass2 == "Gram") {
-          calculated_value = (c * 1016046.91).toString();
+          calculated_value = (c * 1016046.91).toStringAsFixed(3);
         } else if (mass2 == "Imperial ton") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         } else if (mass2 == "Pound") {
-          calculated_value = (c * 2240).toString();
+          calculated_value = (c * 2240).toStringAsFixed(3);
         } else if (mass2 == "Ounce") {
-          calculated_value = (c * 35840).toString();
+          calculated_value = (c * 35840).toStringAsFixed(3);
         } else if (mass2 == "Kilogram") {
-          calculated_value = (c * 1016).toString();
+          calculated_value = (c * 1016).toStringAsFixed(3);
         }
       } else if (mass1 == "Pound") {
         if (mass2 == "Gram") {
-          calculated_value = (c * 453.6).toString();
+          calculated_value = (c * 453.6).toStringAsFixed(3);
         } else if (mass2 == "Imperial ton") {
-          calculated_value = (c / 2240).toString();
+          calculated_value = (c / 2240).toStringAsFixed(3);
         } else if (mass2 == "Pound") {
-          calculated_value = (c * 1).toString();
+          calculated_value = (c * 1).toStringAsFixed(3);
         } else if (mass2 == "Ounce") {
-          calculated_value = (c * 16).toString();
+          calculated_value = (c * 16).toStringAsFixed(3);
         } else if (mass2 == "Kilogram") {
-          calculated_value = (c / 2.205).toString();
+          calculated_value = (c / 2.205).toStringAsFixed(3);
         }
       } else if (mass1 == "Ounce") {
         if (mass2 == "Gram") {
-          calculated_value = (c * 28.35).toString();
+          calculated_value = (c * 28.35).toStringAsFixed(3);
         } else if (mass2 == "Imperial ton") {
-          calculated_value = (c / 35840).toString();
+          calculated_value = (c / 35840).toStringAsFixed(3);
         } else if (mass2 == "Pound") {
-          calculated_value = (c / 16).toString();
+          calculated_value = (c / 16).toStringAsFixed(3);
         } else if (mass2 == "Ounce") {
-          calculated_value = (c * 1).toString();
+          calculated_value = (c * 1).toStringAsFixed(3);
         } else if (mass2 == "Kilogram") {
-          calculated_value = (c / 35.274).toString();
+          calculated_value = (c / 35.274).toStringAsFixed(3);
         }
       }
 
@@ -364,43 +369,43 @@ class _Converters_FileState extends State<Converters_File> {
     } else if (_dropdownvalue == "Speed") {
       if (speed1 == "Mile per hour") {
         if (speed2 == "Meter per second") {
-          calculated_value = (c / 2.237).toString();
+          calculated_value = (c / 2.237).toStringAsFixed(3);
         } else if (speed2 == "Kilometer per hour") {
-          calculated_value = (c * 1.609).toString();
+          calculated_value = (c * 1.609).toStringAsFixed(3);
         } else if (speed2 == "Knot") {
-          calculated_value = (c / 1.151).toString();
+          calculated_value = (c / 1.151).toStringAsFixed(3);
         } else if (speed2 == "Mile per hour") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         }
       } else if (speed1 == "Meter per second") {
         if (speed2 == "Meter per second") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         } else if (speed2 == "Kilometer per hour") {
-          calculated_value = (c * 3.6).toString();
+          calculated_value = (c * 3.6).toStringAsFixed(3);
         } else if (speed2 == "Knot") {
-          calculated_value = (c * 1.944).toString();
+          calculated_value = (c * 1.944).toStringAsFixed(3);
         } else if (speed2 == "Mile per hour") {
-          calculated_value = (c * 2.237).toString();
+          calculated_value = (c * 2.237).toStringAsFixed(3);
         }
       } else if (speed1 == "Kilometer per hour") {
         if (speed2 == "Meter per second") {
-          calculated_value = (c / 3.6).toString();
+          calculated_value = (c / 3.6).toStringAsFixed(3);
         } else if (speed2 == "Kilometer per hour") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         } else if (speed2 == "Knot") {
-          calculated_value = (c / 1.852).toString();
+          calculated_value = (c / 1.852).toStringAsFixed(3);
         } else if (speed2 == "Mile per hour") {
-          calculated_value = (c / 1.609).toString();
+          calculated_value = (c / 1.609).toStringAsFixed(3);
         }
       } else if (speed1 == "Knot") {
         if (speed2 == "Meter per second") {
-          calculated_value = (c / 1.944).toString();
+          calculated_value = (c / 1.944).toStringAsFixed(3);
         } else if (speed2 == "Kilometer per hour") {
-          calculated_value = (c * 1.852).toString();
+          calculated_value = (c * 1.852).toStringAsFixed(3);
         } else if (speed2 == "Knot") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         } else if (speed2 == "Mile per hour") {
-          calculated_value = (c * 1.151).toString();
+          calculated_value = (c * 1.151).toStringAsFixed(3);
         }
       }
     }
@@ -408,27 +413,27 @@ class _Converters_FileState extends State<Converters_File> {
     else if (_dropdownvalue == "Temperature") {
       if (temp1 == "Degree Celsius") {
         if (temp2 == "Degree Celsius") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         } else if (temp2 == "Fahrenheit") {
-          calculated_value = ((c * 9 / 5) + 32).toString();
+          calculated_value = ((c * 9 / 5) + 32).toStringAsFixed(3);
         } else if (temp2 == "Kelvin") {
-          calculated_value = (c + 273.15).toString();
+          calculated_value = (c + 273.15).toStringAsFixed(3);
         }
       } else if (temp1 == "Fahrenheit") {
         if (temp2 == "Degree Celsius") {
-          calculated_value = ((c - 32) * (5 / 9)).toString();
+          calculated_value = ((c - 32) * (5 / 9)).toStringAsFixed(3);
         } else if (temp2 == "Fahrenheit") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         } else if (temp2 == "Kelvin") {
-          calculated_value = (((c - 32) * (5 / 9)) + 273.15).toString();
+          calculated_value = (((c - 32) * (5 / 9)) + 273.15).toStringAsFixed(3);
         }
       } else if (temp1 == "Kelvin") {
         if (temp2 == "Degree Celsius") {
-          calculated_value = (c - 273.15).toString();
+          calculated_value = (c - 273.15).toStringAsFixed(3);
         } else if (temp2 == "Fahrenheit") {
-          calculated_value = (((c - 273.15) * (9 / 5)) + 32).toString();
+          calculated_value = (((c - 273.15) * (9 / 5)) + 32).toStringAsFixed(3);
         } else if (temp2 == "Kelvin") {
-          calculated_value = (c).toString();
+          calculated_value = (c).toStringAsFixed(3);
         }
       }
     }

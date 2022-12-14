@@ -88,7 +88,7 @@ class Navigation_drawer extends StatelessWidget {
                 leading: Icon(FontAwesomeIcons.circleInfo,size: 18,
                     color: Colors.black),
                 title: Text(
-                  "Contact Us",
+                  "About Us",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                 ),
                 onTap: () => {

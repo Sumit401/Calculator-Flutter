@@ -16,7 +16,7 @@ void main() {
     setWindowMaxSize(const Size(600, 720));
     setWindowMinSize(const Size(600, 720));
   } else {
-      if (Platform.isWindows || Platform.isLinux || Platform.isFuchsia) {
+      if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
       setWindowTitle('Calculator');
       setWindowMaxSize(const Size(600, 720));
       setWindowMinSize(const Size(600, 720));
