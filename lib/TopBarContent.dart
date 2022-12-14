@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/Contactus.dart';
 import 'package:project/basic.dart';
 import 'package:project/converters_file.dart';
 import 'package:project/scientific.dart';
@@ -63,7 +64,8 @@ class _TopBarContentState extends State<TopBarContent> {
                 ),
                 InkWell(
                   onTap: () {
-
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed(Contactus.route);
                   },
                   child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 20),
