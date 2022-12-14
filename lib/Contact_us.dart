@@ -27,29 +27,47 @@ class _ContactusState extends State<Contactus> {
               preferredSize: Size(screen_size.width, 70),
               child: TopBarContent()),
       drawer: Navigation_drawer(),
-
       body: Container(
-        color: Colors.white,
-        height: screen_size.height,
-        alignment: Alignment.topCenter,
-        //color: Colors.red,
+        padding: EdgeInsets.only(bottom: 180),
         child: SingleChildScrollView(
+          //scrollDirection: Axis.vertical,
           child: Expanded(
             child: Column(
               children: [
                 Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
                   margin: EdgeInsets.only(top: 20),
-                  child: Text("All in one Calculator created on Flutter!",
-                      style: TextStyle(
-                          fontSize: 25, fontWeight: FontWeight.bold)),
+                  child: Text("Flutter based All in one Calculator!",
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10,left: 20,right: 20),
+                  padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
                   child: Container(
                     child: Text(
-                      "A Calculator that you can use on all the Platforms either it's Android or IOS or Web Application or Desktop Application (Supports Linux, Windows, MacOS) ",
+                      "A Calculator that can be use on all the Platforms either it's Android or IOS or Web Application or Desktop Application (Supports Linux, Windows, MacOS) ",
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic),
+                      style:
+                          TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 50),
+                  child: Text(
+                    "What can I do ?",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+                  child: Container(
+                    child: Text(
+                      "1. Do Basic Calculations\n2. Do Advanced Scientific Calculations\n3. Do Conversions from a particular unit to another ",
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
                     ),
                   ),
                 ),
@@ -61,7 +79,6 @@ class _ContactusState extends State<Contactus> {
       bottomSheet: SingleChildScrollView(
         child: Container(
           alignment: Alignment.bottomCenter,
-          /*alignment: Alignment.bottomCenter,*/
           color: Colors.brown,
           child: Column(
             children: [
@@ -71,20 +88,26 @@ class _ContactusState extends State<Contactus> {
                     alignment: Alignment.center,
                     margin: EdgeInsets.only(top: 20),
                     child: Text("Get In Touch",
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white)),
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white)),
                   ),
                   Container(
                     alignment: Alignment.center,
                     margin: EdgeInsets.only(top: 20),
-                    child: Text("Any Question or Remarks ? Just write us a Message.",
-                        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,color: Colors.white)),
+                    child: Text(
+                        "Any Question or Remarks ? Just write us a Message.",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white)),
                   ),
                 ],
               ),
               Container(
-
                 alignment: Alignment.bottomCenter,
-                margin: EdgeInsets.only(top: 20,bottom: 20),
+                margin: EdgeInsets.only(top: 20, bottom: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -92,9 +115,14 @@ class _ContactusState extends State<Contactus> {
                       child: Column(
                         children: [
                           Container(
-                              child: Icon(FontAwesomeIcons.phoneVolume,color: Colors.white),
+                              child: Icon(FontAwesomeIcons.phoneVolume,
+                                  color: Colors.white),
                               margin: EdgeInsets.only(bottom: 10)),
-                          Container(child: Text("8210794699",style: TextStyle(color:  Colors.white),)),
+                          Container(
+                              child: Text(
+                            "8210794699",
+                            style: TextStyle(color: Colors.white),
+                          )),
                         ],
                       ),
                       onTap: () {
@@ -105,10 +133,14 @@ class _ContactusState extends State<Contactus> {
                       child: Column(
                         children: [
                           Container(
-                              child: Icon(FontAwesomeIcons.envelope,color: Colors.white,),
+                              child: Icon(
+                                FontAwesomeIcons.envelope,
+                                color: Colors.white,
+                              ),
                               margin: EdgeInsets.only(bottom: 10)),
                           Container(
-                            child: Text("sumitsinha401@gmail.com",style: TextStyle(color:  Colors.white)),
+                            child: Text("sumitsinha401@gmail.com",
+                                style: TextStyle(color: Colors.white)),
                           )
                         ],
                       ),
@@ -120,10 +152,14 @@ class _ContactusState extends State<Contactus> {
                       child: Column(
                         children: [
                           Container(
-                              child: Icon(FontAwesomeIcons.locationDot,color: Colors.white,),
+                              child: Icon(
+                                FontAwesomeIcons.locationDot,
+                                color: Colors.white,
+                              ),
                               margin: EdgeInsets.only(bottom: 10)),
                           Container(
-                            child: Text("Patna, Bihar",style: TextStyle(color:  Colors.white)),
+                            child: Text("Patna, Bihar",
+                                style: TextStyle(color: Colors.white)),
                           )
                         ],
                       ),
