@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/Contactus.dart';
+import 'package:project/Contact_us.dart';
 import 'package:project/basic.dart';
 import 'package:project/converters_file.dart';
 import 'package:project/scientific.dart';
@@ -11,89 +11,94 @@ class Navigation_drawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.fromLTRB(0, 60, 0, 20),
-            color: Theme.of(context).primaryColor,
-            child: Center(
-              child: Column(
-                children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                "https://play-lh.googleusercontent.com/cO4csI8eYgS8jeOHx10oPkp1TbrCD34JpXxxlodZQYy8dvTR9kHkKXerSAU1GuBHQuxV=w240-h480-rw"),
-                            fit: BoxFit.fill)),
-                  ),
-                  Container(
-                    child: Text(
-                      "Scientific Calculator",
-                      style: TextStyle(color: Colors.white),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.fromLTRB(0, 60, 0, 20),
+              color: Theme.of(context).primaryColor,
+              child: Center(
+                child: Column(
+                  children: [
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  "https://play-lh.googleusercontent.com/cO4csI8eYgS8jeOHx10oPkp1TbrCD34JpXxxlodZQYy8dvTR9kHkKXerSAU1GuBHQuxV=w240-h480-rw"),
+                              fit: BoxFit.fill)),
                     ),
-                    margin: EdgeInsets.only(top: 10),
-                  ),
-                ],
+                    Container(
+                      child: Text(
+                        "Scientific Calculator",
+                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
+                      ),
+                      margin: EdgeInsets.only(top: 10),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.only(top: 20, left: 20),
-            leading: Icon(FontAwesomeIcons.calculator,size: 20,
-                color: Colors.black),
-            title: Text(
-              "Basic Calculator",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            ListTile(
+              contentPadding: EdgeInsets.only(top: 20, left: 20),
+              leading: Icon(FontAwesomeIcons.calculator,size: 18,
+                  color: Colors.black),
+              title: Text(
+                "Basic Calculator",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+              ),
+              onTap: () => {
+                Navigator.of(context).pop(),
+                Navigator.of(context).pushNamed(Main_screen.route)
+              },
             ),
-            onTap: () => {
-              Navigator.of(context).pop(),
-              Navigator.of(context).pushNamed(Main_screen.route)
-            },
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.only(top: 20, left: 20),
-            leading: Icon(FontAwesomeIcons.squareRootVariable,size: 20,
-              color: Colors.black,),
-            title: Text(
-              "Scientific Calculator",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            ListTile(
+              contentPadding: EdgeInsets.only(top: 20, left: 20),
+              leading: Icon(FontAwesomeIcons.squareRootVariable,size: 18,
+                color: Colors.black,),
+              title: Text(
+                "Scientific Calculator",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+              ),
+              onTap: () => {
+                Navigator.of(context).pop(),
+                Navigator.of(context).pushNamed(Scientific.route)
+              },
             ),
-            onTap: () => {
-              Navigator.of(context).pop(),
-              Navigator.of(context).pushNamed(Scientific.route)
-            },
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.only(top: 20, left: 20),
-            leading: Icon(FontAwesomeIcons.leftRight,size: 20,
-              color: Colors.black,),
-            title: Text(
-              "Converter",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            ListTile(
+              contentPadding: EdgeInsets.only(top: 20, left: 20),
+              leading: Icon(FontAwesomeIcons.leftRight,size: 18,
+                color: Colors.black,),
+              title: Text(
+                "Converter",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+              ),
+              onTap: () => {
+                Navigator.of(context).pop(),
+                Navigator.of(context).pushNamed(Converters_File.route),
+              },
             ),
-            onTap: () => {
-              Navigator.of(context).pop(),
-              Navigator.of(context).pushNamed(Converters_File.route),
-            },
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.only(top: 20, left: 20),
-            leading: Icon(FontAwesomeIcons.circleInfo,size: 30,
-                color: Colors.black),
-            title: Text(
-              "Contact Us",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-            ),
-            onTap: () => {
-              Navigator.of(context).pop(),
-              Navigator.of(context).pushNamed(Contactus.route)
-            },
-          )
-        ],
+            Container(
+              margin: EdgeInsets.only(bottom: 20),
+              child: ListTile(
+                contentPadding: EdgeInsets.only(top: 20, left: 20),
+                leading: Icon(FontAwesomeIcons.circleInfo,size: 18,
+                    color: Colors.black),
+                title: Text(
+                  "Contact Us",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                ),
+                onTap: () => {
+                  Navigator.of(context).pop(),
+                  Navigator.of(context).pushNamed(Contactus.route)
+                },
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

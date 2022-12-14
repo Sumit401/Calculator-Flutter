@@ -79,95 +79,100 @@ class _Converters_FileState extends State<Converters_File> {
             : PreferredSize(
                 child: TopBarContent(), preferredSize: Size(screen_size.width, 70)),
         drawer: Navigation_drawer(),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(16),
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                    decoration: BoxDecoration(
-                      shape: BoxShape
-                          .rectangle, /*border: Border.all(color: Colors.black)*/
-                    ),
-                    child: DropdownButton<String>(
-                      items: items
-                          .map((e) => DropdownMenuItem(
-                                child: Text(e),
-                                value: e,
-                              ))
-                          .toList(),
-                      isExpanded: true,
-                      icon: Icon(FontAwesomeIcons.anglesDown,
-                          color: Colors.black),
-                      iconSize: 25,
-                      value: _dropdownvalue,
-                      onChanged: (val) {
-                        setState(() {
-                          _dropdownvalue = val;
-                        });
-                      },
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.all(16),
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                      decoration: BoxDecoration(
+                        shape: BoxShape
+                            .rectangle, /*border: Border.all(color: Colors.black)*/
+                      ),
+                      child: DropdownButton<String>(
+                        items: items
+                            .map((e) => DropdownMenuItem(
+                                  child: Text(e),
+                                  value: e,
+                                ))
+                            .toList(),
+                        isExpanded: true,
+                        icon: Icon(FontAwesomeIcons.anglesDown,
+                            color: Colors.black),
+                        iconSize: 25,
+                        value: _dropdownvalue,
+                        onChanged: (val) {
+                          setState(() {
+                            _dropdownvalue = val;
+                          });
+                        },
+                      ),
                     ),
                   ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 20, bottom: 20, right: 40, left: 40),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                        child: TextFormField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(), labelText: "Enter Value"),
+                      controller: _c,
+                    )),
+                    VerticalDivider(
+                      width: 40,
+                    ),
+                    Expanded(
+                        child: SizedBox(
+                            child: Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black54,
+                            width: 2,
+                            strokeAlign: StrokeAlign.outside,
+                          ),
+                          borderRadius: BorderRadius.circular(8)),
+                      padding: EdgeInsets.all(15),
+                      child: Text(text_input_field!),
+                    )))
+                  ],
                 ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  top: 20, bottom: 20, right: 40, left: 40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                      child: TextFormField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: "Enter Value"),
-                    controller: _c,
-                  )),
-                  VerticalDivider(
-                    width: 40,
-                  ),
-                  Expanded(
-                      child: SizedBox(
-                          child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.black54,
-                          width: 2,
-                          strokeAlign: StrokeAlign.outside,
-                        ),
-                        borderRadius: BorderRadius.circular(8)),
-                    padding: EdgeInsets.all(15),
-                    child: Text(text_input_field!),
-                  )))
-                ],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  top: 20, bottom: 20, right: 40, left: 40),
-              child: Row(
-                children: [
-                  Expanded(child: func(_dropdownvalue)),
-                  VerticalDivider(
-                    width: 40,
-                  ),
-                  Expanded(child: func2(_dropdownvalue)),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 20, bottom: 20, right: 40, left: 40),
+                child: Row(
+                  children: [
+                    Expanded(child: func(_dropdownvalue)),
+                    VerticalDivider(
+                      width: 40,
+                    ),
+                    Expanded(child: func2(_dropdownvalue)),
+                  ],
+                ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  var c = double.parse(_c.text);
-                  calculation_func(c);
-                });
-              },
-              child: Text("Check"),
-            )
-          ],
+              Container(
+                margin: EdgeInsets.only(bottom: 30,top: 20),
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      var c = double.parse(_c.text);
+                      calculation_func(c);
+                    });
+                  },
+                  child: Text("Check"),
+                ),
+              )
+            ],
+          ),
         ));
   }
 
