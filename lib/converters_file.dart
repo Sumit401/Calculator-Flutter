@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/Navigation_drawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:project/Responsive.dart';
+import 'package:project/TopBarContent.dart';
 
 class Converters_File extends StatefulWidget {
   static const route = "/converters_file";
@@ -76,7 +77,7 @@ class _Converters_FileState extends State<Converters_File> {
         appBar: ResponsiveWidget.isSmallScreen(context)
             ? AppBar(title: Text("Converter"))
             : PreferredSize(
-                child: Container(), preferredSize: Size(screen_size.width, 70)),
+                child: TopBarContent(), preferredSize: Size(screen_size.width, 70)),
         drawer: Navigation_drawer(),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,

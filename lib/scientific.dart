@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:project/Navigation_drawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:project/Responsive.dart';
+import 'package:project/TopBarContent.dart';
 
 class Scientific extends StatefulWidget {
   static const route = "/scientific";
@@ -28,7 +29,7 @@ class _ScientificState extends State<Scientific> {
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBar(title: Text("Scientific Calculator"))
           : PreferredSize(
-              child: Container(), preferredSize: Size(screen_size.width, 70)),
+              child: TopBarContent(), preferredSize: Size(screen_size.width, 70)),
       drawer: Navigation_drawer(), //For navigation Drawer
 
       //Below Layout Design for the activity
