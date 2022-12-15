@@ -22,7 +22,7 @@ class _ContactusState extends State<Contactus> {
     var screen_size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: ResponsiveWidget.isSmallScreen(context)
-          ? AppBar()
+          ? AppBar(title: Text("Contact Us"),)
           : PreferredSize(
               preferredSize: Size(screen_size.width, 70),
               child: TopBarContent()),
@@ -31,48 +31,46 @@ class _ContactusState extends State<Contactus> {
         padding: EdgeInsets.only(bottom: 180),
         child: SingleChildScrollView(
           //scrollDirection: Axis.vertical,
-          child: Expanded(
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  margin: EdgeInsets.only(top: 20),
-                  child: Text("Flutter based All in one Calculator!",
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
-                  child: Container(
-                    child: Text(
-                      "A Calculator that can be use on all the Platforms either it's Android or IOS or Web Application or Desktop Application (Supports Linux, Windows, MacOS) ",
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 50),
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(top: 20),
+                child: Text("Flutter based All in one Calculator!",
+                    style:
+                        TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+                child: Container(
                   child: Text(
-                    "What can I do ?",
+                    "A Calculator that can be use on all the Platforms either it's Android or IOS or Web Application or Desktop Application (Supports Linux, Windows, MacOS) ",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style:
+                        TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
-                  child: Container(
-                    child: Text(
-                      "1. Do Basic Calculations\n2. Do Advanced Scientific Calculations\n3. Do Conversions from a particular unit to another ",
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
-                    ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 50),
+                child: Text(
+                  "What can I do ?",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+                child: Container(
+                  child: Text(
+                    "1. Do Basic Calculations\n2. Do Advanced Scientific Calculations\n3. Do Conversions from a particular unit to another ",
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

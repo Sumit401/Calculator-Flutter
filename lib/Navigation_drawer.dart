@@ -24,19 +24,18 @@ class Navigation_drawer extends StatelessWidget {
                     Container(
                       width: 100,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           shape: BoxShape.rectangle,
                           image: DecorationImage(
-                              image: NetworkImage(
-                                  "https://play-lh.googleusercontent.com/cO4csI8eYgS8jeOHx10oPkp1TbrCD34JpXxxlodZQYy8dvTR9kHkKXerSAU1GuBHQuxV=w240-h480-rw"),
+                              image: ExactAssetImage('assets/images/calc_icon.jpg'),
                               fit: BoxFit.fill)),
                     ),
                     Container(
-                      child: Text(
+                      margin: EdgeInsets.only(top: 10),
+                      child: const Text(
                         "Scientific Calculator",
                         style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),
                       ),
-                      margin: EdgeInsets.only(top: 10),
                     ),
                   ],
                 ),
