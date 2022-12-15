@@ -11,24 +11,24 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  if (kIsWeb) {
+  /*if (kIsWeb) {
     setWindowTitle('Calculator');
-    setWindowMaxSize(const Size(600, 720));
-    setWindowMinSize(const Size(600, 720));
+    setWindowMaxSize(const Size(1280, 720));
+    setWindowMinSize( Size.infinite);
   } else {
       if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
       setWindowTitle('Calculator');
       setWindowMaxSize(const Size(600, 720));
       setWindowMinSize(const Size(600, 720));
-      }
-
+      }*/
+  runApp(MyApp());
   }
 
-  SystemChrome.setPreferredOrientations([
+  /*SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]).then((value) => runApp(MyApp()));
 
-}
+}*/
 
 class MyApp extends StatelessWidget {
   @override

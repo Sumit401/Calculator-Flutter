@@ -1,4 +1,4 @@
-package com.example.project
+package sumit401.calculator.project
 
 import io.flutter.embedding.android.FlutterActivity
 

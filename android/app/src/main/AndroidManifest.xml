@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.project">
+    package="sumit401.calculator.project">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="Calculator"
@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher">
        
         <activity
-            android:name=".MainActivity"
+            android:name="sumit401.calculator.project.MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"

@@ -26,7 +26,7 @@ class _Main_screenState extends State<Main_screen> {
         body: Container(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(10.0),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -34,7 +34,7 @@ class _Main_screenState extends State<Main_screen> {
                       children: [
                         Expanded(
                             child: Padding(
-                          padding: const EdgeInsets.all(18.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Container(
                             child: Text(operations_display,
                                 style: TextStyle(
@@ -65,7 +65,7 @@ class _Main_screenState extends State<Main_screen> {
                       children: [
                         Expanded(
                           child: Container(
-                            padding: EdgeInsets.only(bottom: 10,left: 10,right: 10),
+                            padding: EdgeInsets.only(bottom: 0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
@@ -125,7 +125,7 @@ class _Main_screenState extends State<Main_screen> {
           child: (OutlinedButton(
         onPressed: () => tasktocarry(value),
         child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
+            padding: const EdgeInsets.symmetric(vertical: 15),
             child: Icon(
               FontAwesomeIcons.deleteLeft,
               color: Colors.black,
@@ -136,7 +136,7 @@ class _Main_screenState extends State<Main_screen> {
           child: (OutlinedButton(
         onPressed: () => tasktocarry(value),
         child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
+            padding: const EdgeInsets.symmetric(vertical: 15),
             child: Icon(
               FontAwesomeIcons.circleXmark,
               color: Colors.black,
@@ -147,7 +147,7 @@ class _Main_screenState extends State<Main_screen> {
           child: (OutlinedButton(
         onPressed: () => tasktocarry(value),
         child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
+            padding: const EdgeInsets.symmetric(vertical: 15),
             child: Icon(
               FontAwesomeIcons.equals,
               color: Colors.black,
@@ -159,7 +159,7 @@ class _Main_screenState extends State<Main_screen> {
           child: (OutlinedButton(
         onPressed: () => tasktocarry(value),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 15),
           child: Text(
             value,
             style: TextStyle(fontSize: 25, color: Colors.black87,fontWeight: FontWeight.bold),
